@@ -31,7 +31,7 @@
             <li><a class="nodeHover" href="#guidelines">Guidelines</a></li>
             <li><a class="nodeHover" href="prob-state.php">Problem-Statement</a></li>
             <li><a class="nodeHover" href="#footer">Contact Us</a></li>
-            <li><button class="login-button nodeHover" href="#">Login / Register</button></li>
+            <li><button class="login-button nodeHover" href="logout.php">Logout</button></li>
         </ul>
     </nav>
     <section class="home" id = "home">
