@@ -1,0 +1,76 @@
+body {
+    min-height: 100vh;
+}
+
+.nav_margin {
+    padding-top: 23vh;
+}
+
+.box {
+    background: rgba( 255, 255, 255, 0.25);
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37);
+    backdrop-filter: blur( 4px);
+    -webkit-backdrop-filter: blur( 4px);
+    height: 375px;
+    max-width: 500px;
+    border-radius: 5px;
+    border-top: 5px solid #2d1574;
+    font-family: 'Saira';
+    font-weight: 900;
+    font-size: 15px;
+    margin-bottom: 30vh;
+}
+
+.box .title {
+    margin-top: 17px;
+    margin-bottom: 20px;
+}
+
+input[type=text] {
+    border-radius: 5px;
+    font-family: 'poppins';
+    width: 350px;
+    border: 3px solid #ccc;
+    outline: none;
+    padding: 12px 20px;
+    margin-bottom: 15px;
+    transition: 0.5s;
+}
+
+input[list=lab] {
+    width: 173px;
+    border-radius: 5px;
+    border: 3px solid #ccc;
+    outline: none;
+    padding: 12px 20px;
+    margin-bottom: 15px;
+    transition: 0.5s;
+}
+
+input[list=id] {
+    border-radius: 5px;
+    width: 173px;
+    border: 3px solid #ccc;
+    outline: none;
+    padding: 12px 20px;
+    margin-bottom: 15px;
+    transition: 0.5s;
+}
+
+input[type="text"]:focus {
+    border: 2px solid black;
+}
+
+.icon {
+    color: black;
+    padding: 3px;
+    height: 10px;
+    text-align: center;
+}
+
+@media only screen and (max-width: 600px) {
+    .box {
+        max-width: 95vw;
+        align-items: center;
+    }
+}

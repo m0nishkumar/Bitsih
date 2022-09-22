@@ -1,17 +1,13 @@
 <?php
-include "conn.php";
-$n=$_POST["name"];
-$e=$_POST["email"];
-$p=$_POST["phonenumber"];
-$b=$_POST["password"];
-
-$sql="INSERT INTO users (username,email,password,phone) VALUES('$n','$e','$b','$p')";
-$conn->query($sql);
-echo $sql;
-?>
-<?php
 // Include config file
 require_once "config.php";
+session_start();
+ 
+// Check if the user is already logged in, if yes then redirect him to welcome page
+if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
+    header("location: login.php");
+    exit;
+}
 
 $username = $password = $confirm_password = "";
 $username_err = $password_err = $confirm_password_err = "";
@@ -23,9 +19,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     // Validate username
     if(empty(trim($_POST["username"]))){
         $username_err = "Please enter a username.";
-    } elseif(!preg_match('/^[a-zA-Z0-9_]+$/', trim($_POST["username"]))){
-        $username_err = "Username can only contain letters, numbers, and underscores.";
-    } else{
+    } 
+     else{
         // Prepare a select statement
         $sql = "SELECT id FROM users WHERE username = ?";
         
@@ -118,7 +113,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 <head>
     <meta charset="UTF-8">
     <title>LINESTO | SIGNUP</title>
-    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./css/style-login.css">
 
     <style>
         body{ background-color: #f2f4fe;
@@ -126,7 +121,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     </style>
 </head>
 <body><center><section class="signup_forms">
-<img src="./assets/logo.png" alt="Logo">
     <div class="wrapper_signup">
         <b><h3>Set up your account</h3></b>
         <p>Join us and start your journey with us.</p>

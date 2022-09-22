@@ -1,0 +1,48 @@
+button{
+    background-color:#2d1574;
+    color:aliceblue;
+    font-family: 'poppins';
+    font-weight: 900;
+    border-radius: 15px;
+    width:100px; 
+    height:55px;
+    font-size: 15px;  
+    transition:0.5s all,box-shadow 0.5s 1s;
+    transform:translateX(-20px);
+}
+button:hover{
+    width:140px; 
+    height:63px;
+    box-shadow:4px 4px 10px rgb(110, 110, 109);
+    transform:translateX(-30px);
+}
+.hover{
+    padding-left:35px;
+    height:55px;
+    width:120px;
+}
+button:hover .text{
+    transition:0.5s 0.3s;
+    transform:translateX(-19px);
+}
+.hover:hover .text1{
+    opacity: 1;
+    transform:translateX(33px);
+    transition: 
+    transform 0.3s 1s;
+}
+.text{
+    transition: 0.3s;
+    color:white;
+}
+.text1{
+    margin-top:-42px;
+    transform:translateX(130px);
+    width:50px;
+    opacity:0;
+    color:white;
+    transition:
+     opacity 0.5s 0.5s ,
+     transform 0.5s;
+}
+

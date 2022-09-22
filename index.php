@@ -5,20 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="./css/style.css"/>
-
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
-    
-
     <title>BIT | SIH</title>
 </head>
 <body>
+    <style>
+        .index-mobile-title{
+            margin-top: 28vh;
+        }
+    </style>
     <div class="node" id="node"></div>
     <div class="cursor" id="cursor"></div>
     <nav>
         <div class="logo">
-            <img src="" alt="Logo Image">
+            <img src="./assets/logo.png" alt="Logo Image">
+            <h3>Bannari Amman Institute of Technology</h3>
+            <h4>BIT</h4>
         </div>
         <div class="hamburger">
             <div class="line1"></div>
@@ -29,15 +32,15 @@
             <li><a class="active nodeHover" href="#home">Home</a></li>
             <li><a class="nodeHover" href="#about">About</a></liImplementation Team</a></li>
             <li><a class="nodeHover" href="#guidelines">Guidelines</a></li>
-            <li><a class="nodeHover" href="prob-state.php">Problem-Statement</a></li>
+            <li><a class="nodeHover" href="login.php">Problem-Statement</a></li>
             <li><a class="nodeHover" href="#footer">Contact Us</a></li>
-            <li><button class="login-button nodeHover" href="#">Login / Register</button></li>
+            <li><a class="login-button nodeHover" href="login.php">Login / Register</a></li>
         </ul>
     </nav>
     <section class="home" id = "home">
-        <h1>BIT INTRACOLLEGE<br> HACKATHON<span>'</span>22</h1>
-        <h2>BIT<br> INTRACOLLEGE<br> HACKATHON<span>'</span>22</h2>
-        <button class="login-button join nodeHover" href="#">Join the Event </button>
+        <h1>BIT INTRACOLLEGE<br>SOFTWARE HACKATHON<span>'</span>22</h1>
+        <h2 class="index-mobile-title">BIT INTRACOLLEGE<br>SOFTWARE HACKATHON<span>'</span>22</h2>
+        <a class="login-button join nodeHover" href="login.php">Join the Event </a>
         <div class="circle"></div>
         <div class="circle"></div>
         <div class="circle"></div>
@@ -167,7 +170,7 @@
             <center>
                 <img src="./assets/registration.png" alt="Registration Image" width="120px" height="120px">
                 <h4>Team Strength</h4>
-                <p><i class="fa fa-dot-circle-o" style="font-size:15px"></i> Minimum: 2</p>
+                <p><i class="fa fa-dot-circle-o" style="font-size:15px"></i> Minimum: 3</p>
                 <p><i class="fa fa-dot-circle-o" style="font-size:15px"></i> Maximum: 6</p>
 
             </center>
@@ -191,7 +194,7 @@
     </section>
     <footer>
         <div id="footer" class="footer-content">
-            <h3>HACKATHON'22</h3>
+            <h3>BIT INTRACOLLEGE HACKATHON'22</h3>
             <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy.</p>
             <ul class="socials">
                 <li></li>
@@ -201,9 +204,9 @@
                 <ul class="f-menu">
                     <li><a class="nodeHover" href="#home">Home</a></li>
                     <li><a class="nodeHover" href="#about">About</a></li>
-                    <li><a class="nodeHover" href="">Guidelines</a></li>
+                    <li><a class="nodeHover" href="#guidelines">Guidelines</a></li>
                     <li><a class="nodeHover" href="">Support</a></li>
-                    <li><a class="nodeHover" href="prob-state.php">Problem-Statement</a></li>
+                    <li><a class="nodeHover" href="login.php">Problem-Statement</a></li>
                 </ul>
             </div>
         </div>
