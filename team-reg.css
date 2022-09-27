@@ -1,0 +1,94 @@
+#jk{
+    background-color:#2d1574;
+    color:white;
+    border-radius: 6px;
+}
+.contentt{
+    height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content: space-around;
+}
+.box
+    {
+    transform:scale(0.9);
+    position:relative;
+    background: rgba( 255, 255, 255, 0.25 );
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 4px );
+    -webkit-backdrop-filter: blur( 4px );
+    max-height:800px;
+    padding-bottom:5px;
+    max-width:500px;
+    padding-right:65px;
+    padding-left:58px;
+    border-radius:5px;
+    border-top: 5px solid #2d1574;
+    font-family: 'Saira';
+    font-weight: 900;
+    font-size: 15px;  
+    }
+    .box .title{
+        margin-top:17px;
+        margin-bottom: 20px;
+    }
+    input[type=text] {
+        border-radius:5px;
+        font-family: 'poppins';
+        width: 350px;
+        border: 3px solid #ccc;
+        outline:none;
+        padding: 12px 20px;
+        margin-bottom: 15px;
+        transition: 0.5s;
+    }
+    #inp{
+        background-color: #edebeb;
+    }
+    input[list=lab] {
+        width: 173px;
+        border-radius:5px;
+        border: 3px solid #ccc;
+        outline:none;
+        padding: 12px 20px;
+        margin-bottom: 15px;
+        transition: 0.5s;
+    }
+    input[list=id] {
+        border-radius:5px;
+        width: 173px;
+        border: 3px solid #ccc;
+        outline:none;
+        padding: 12px 20px;
+        margin-bottom: 15px;
+        transition: 0.5s;
+    }
+    input[type="text"]:focus{
+        border:2px solid black;
+    }
+    .icon {
+        color:black;
+        padding:3px;
+        color: black;
+        height:10px;
+        text-align: center;
+    }
+    
+
+    @media only screen and (max-width: 600px) {
+        .box{
+            max-width:100vw;
+            margin:auto;
+            align-items: center;
+        }
+        .contentt{
+            height:100vh;
+            display:flex;
+            justify-content: space-around;
+        }
+        input[type="text"]{
+            max-width:230px;
+        }
+      }
+      
+

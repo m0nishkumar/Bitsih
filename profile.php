@@ -97,6 +97,25 @@ $username = $_SESSION["username"];
             margin: auto;
             margin-top: 10px;
         }
+
+        table {
+            border-collapse: collapse;
+            width: 50%;
+        }
+
+        th,
+        td {
+            padding: 10px;
+            text-align: center;
+            border: 1px solid #ccc;
+            flex-basis: 50%;
+
+        }
+
+        tr {
+            display: flex;
+            flex-direction: row;
+        }
     </style>
     <title>BIT | SIH</title>
 </head>
@@ -129,102 +148,261 @@ $username = $_SESSION["username"];
         <h1>PROFILE</h1>
         <div class='student_details'>
             <?php
+            $info = 0;
             $sql = "SELECT email FROM student_details";
             $result = mysqli_query($link, $sql);
             if (mysqli_num_rows($result) > 0) {
                 while ($row = mysqli_fetch_assoc($result)) {
-                    if ($username != $row['email']) {
-            ?>
-                        <div class='input_box'>
-                            <form action="stud_insert" method="POST">
-                                <h2>Update Details</h2>
-                                <label>Name : </label>
-                                <input type="text" name="name" placeholder="Ex:Kavin" />
-                                <label>Roll Number : </label>
-                                <input type="text" name="roll_no" placeholder="Ex:7376211CS183" />
-                                <input type="hidden" name="email" value=<?php echo $username; ?>>
-                                <label>Lab Name: </label>
-                                <input type="text" name="lab_name" placeholder="Ex:AI LAb" />
-                                <label>Lab Code: </label>
-                                <input type="text" name="lab_id" placeholder="Ex:SLB003" />
-                                <label>Phone Number: </label>
-                                <input type="text" name="phone_number" placeholder="Ex:8072677XXX" />
-                                <button class="login-button btn" name='stud_insert'>Submit</button>
-                            </form>
-                        </div>
-                    <?php
+
+                    if ($username == $row['email']) {
+                        $info = 1;
                         break;
-                    } else {
-                    ?>
-                        <div class="display_profile">
-                            <?php
-                            $sql = "SELECT * FROM student_details Where email IN ('$username')";
-                            $result = mysqli_query($link, $sql);
-                            if (mysqli_num_rows($result) > 0) {
-                                while ($row = mysqli_fetch_assoc($result)) { ?>
-                                    <div>
-                                        <ul class="responsive-table">
-                                            <li>
-                                                <div class="col col-1" data-label="Name: "><?php echo $row['name']; ?></div>
-                                                <div class="col col-2" data-label="Roll No: "><?php echo $row['roll_no'] ?></div>
-                                                <div class="col col-3" data-label="E-mail: "><?php echo $row['email'] ?></div>
-                                                <div class="col col-4" data-label="Lab Name: "><?php echo $row['lab_name'] ?></div>
-                                                <div class="col col-5" data-label="Lab Code: "><?php echo $row['lab_id'] ?></div>
-                                                <div class="col col-6" data-label="Phone Number: "><?php echo $row['phone_number'] ?></div>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                <?php
-                                }
-                            }
-                            $team = 0;
-                            $sql = "SELECT * FROM team";
-                            $result = mysqli_query($link, $sql);
-                            if (mysqli_num_rows($result) > 0) {
-                                while ($row = mysqli_fetch_assoc($result)) {
-                                    if ($username == $row['email']) {
-                                        $team = 1;
-                                        break;
-                                    }
-                                }
-                                ?>
-                                <div class="team">
-                                    <?php
-                                    if ($team == 1) {
-                                        $sql = "SELECT * FROM team Where email IN ($username)";
-                                        $result = mysqli_query($link, $sql);
-                                        if (mysqli_num_rows($result) >= 0) {
-                                            echo 'Team Name: ';
-                                            echo $row['team_id'];
-                                            while ($row = mysqli_fetch_assoc($result)) { ?>
-                                                <ul class="responsive-table">
-                                                    <li>
-                                                        <div class="col col-1" data-label="Name: "><?php echo $row['email']; ?></div>
-                                                        <div class="col col-2" data-label="Position: "><?php echo $row['designation'] ?></div>
-                                                    </li>
-                                                </ul>
-                                        <?php }
-                                        }
-                                    } else {
-                                        ?>
-                                        <center>
-                                            <div class="create_team">
-                                                <h3>You have not created team yet!</h3>
-                                                <p><a href="create_team.php">Click Here</a> To Create A Team!</p>
-                                            </div>
-                                        </center>
-                                    <?php
-                                    }
-                                    ?>
+                    }
+                }
+
+                if ($info == 0) {
+            ?>
+                    <div class='input_box'>
+                        <form action="stud_insert" method="POST">
+                            <h2>Update Details</h2>
+                            <label>Name: </label>
+                            <input type="text" name="name" placeholder="Ex:Kavin" required />
+                            <label>Roll Number: </label>
+                            <input type="text" name="roll_no" placeholder="Ex:7376211CS183" required />
+                            <input type="hidden" name="email" value=<?php echo $username; ?>>
+                            <label>Lab Name: </label>
+                            <select id="lab_name" name="lab_name">
+                                <option value="APPAREL MADE-UPS AND HOME FURNISHINGS LAB">APPAREL MADE-UPS AND HOME FURNISHINGS LAB</option>
+                                <option value="ART AND DESIGN LABORATORY">ART AND DESIGN LABORATORY</option>
+                                <option value="ARTIFICIAL INTELLIGENCE - PRODUCT DEVELOPMENT">ARTIFICIAL INTELLIGENCE - PRODUCT DEVELOPMENT</option>
+                                <option value="BIO PROSPECTING LAB">BIO PROSPECTING LAB</option>
+                                <option value="BIOPOLYMER AND BIOMATERIAL SYNTHESIS AND ANAYLTICAL TESTING">BIOPOLYMER AND BIOMATERIAL SYNTHESIS AND ANAYLTICAL TESTING </option>
+                                <option value="BIOPROCESS AND BIOPRODUCTS LAB">BIOPROCESS AND BIOPRODUCTS LAB</option>
+                                <option value="BLOCKCHAIN TECHNOLOGY">BLOCKCHAIN TECHNOLOGY</option>
+                                <option value="CLOUD COMPUTING">CLOUD COMPUTING</option>
+                                <option value="COMMUNICATION PROTOCOL">COMMUNICATION PROTOCOL</option>
+                                <option value="CYBER SECURITY">CYBER SECURITY</option>
+                                <option value="DATA SCIENCE - INDUSTRIAL APPLICATIONS">DATA SCIENCE - INDUSTRIAL APPLICATIONS</option>
+                                <option value="ELECTRICAL DRIVES AND AUTOMATION">ELECTRICAL DRIVES AND AUTOMATION</option>
+                                <option value="ELECTRICAL PRODUCT DEV LAB">ELECTRICAL PRODUCT DEV LAB</option>
+                                <option value="ELECTRONIC PRoDUCT DEV LAB">ELECTRONIC PRODUCT DEV LAB</option>
+                                <option value="ELECTRONIC SYSTEM FOR WILDLIFE CONSERVATION">ELECTRONIC SYSTEM FOR WILDLIFE CONSERVATION</option>
+                                <option value="EMBEDDED TECHNOLOGY">EMBEDDED TECHNOLOGY</option>
+                                <option value="ENERGY AND THERMAL PRODUCT DESIGN & DEVELOPMENT LAB">ENERGY AND THERMAL PRODUCT DESIGN & DEVELOPMENT LAB</option>
+                                <option value="ENERGY STORAGE & CONVERSION">ENERGY STORAGE & CONVERSION</option>
+                                <option value="FUNCTIONAL FOOD & NUTRACEUTICALS">FUNCTIONAL FOOD & NUTRACEUTICALS</option>
+                                <option value="FUNGAL BIODIVERSITY AND BIO-RESOURCES LABORATORY">FUNGAL BIODIVERSITY AND BIO-RESOURCES LABORATORY></option>
+                                <option value="HACKATHON LAB">HACKATHON LAB</option>
+                                <option value="AI BASED INDUSTRIAL AUTOMATION">AI BASED INDUSTRIAL AUTOMATION</option>
+                                <option value="INDUSTRIAL DESIGN">INDUSTRIAL DESIGN</option>
+                                <option value="INDUSTRIAL IOT">INDUSTRIAL IOT</option>
+                                <option value="IOT">IOT</option>
+                                <option value="MANUFACTURING & FABRICATION">MANUFACTURING & FABRICATION</option>
+                                <option value="MICRO PROTOTYPING LAB">MICRO PROTOTYPING LAB</option>
+                                <option value="MOBILE AND WEB APP FOR SOFTWARE APPLICATIONS">MOBILE AND WEB APP FOR SOFTWARE APPLICATIONS</option>
+                                <option value="MODELLING & ANALYSIS">MODELLING & ANALYSIS</option>
+                                <option value="DESIGN AND PROTOTYPING">DESIGN AND PROTOTYPING</option>
+                                <option value="MOLECULAR DIAGNOSTICS & BIO MOLECULE CHARACTERISATION">MOLECULAR DIAGNOSTICS & BIO MOLECULE CHARACTERISATION</option>
+                                <option value="NEW PRODUCT DEVELOPMENT LAB">NEW PRODUCT DEVELOPMENT LAB</option>
+                                <option value="INTELLIGENT COMMUNICATION AND EMBEDDED SYSTEMS LAB">INTELLIGENT COMMUNICATION AND EMBEDDED SYSTEMS LAB</option>
+                                <option value="PRINTED CIRCUIT BOARD (PCB) LAB">PRINTED CIRCUIT BOARD (PCB) LAB</option>
+                                <option value="RENEWABLE ENERGY AND HVAC PRODUCTS">RENEWABLE ENERGY AND HVAC PRODUCTS</option>
+                                <option value="ROBOTICS & AUTOMATION LAB">ROBOTICS & AUTOMATION LAB</option>
+                                <option value="INTEGRATED AI & SENSORS">INTEGRATED AI & SENSORS</option>
+                                <option value="SIGNAL PROCESSING FOR HEALTH CARE LAB">SIGNAL PROCESSING FOR HEALTH CARE LAB</option>
+                                <option value="SMART AGRICULTURE">SMART AGRICULTURE</option>
+                                <option value="SMART AND HEALTHY INFRASTRUCTURE">SMART AND HEALTHY INFRASTRUCTURE</option>
+                                <option value="ROBOTIC PROCESS AUTOMATION LAB">ROBOTIC PROCESS AUTOMATION LAB</option>
+                                <option value="SUSTAINABLE CIVIL ENGINEERING MATERIALS LAB">SUSTAINABLE CIVIL ENGINEERING MATERIALS LAB</option>
+                                <option value="TECHNICAL TEXTILE">TECHNICAL TEXTILE</option>
+                                <option value="UNMANNED AERIAL VEHICLE">UNMANNED AERIAL VEHICLE</option>
+                                <option value="UNMANNED UNDERWATER VEHICLE">UNMANNED UNDERWATER VEHICLE</option>
+                                <option value="VIRTUAL INSTRUMENTATION LAB">VIRTUAL INSTRUMENTATION LAB</option>
+                                <option value="VIRTUAL REALITY / AUGMENTED REALITY">VIRTUAL REALITY / AUGMENTED REALITY</option>
+                                <option value="VISION ENGINEERING LAB">VISION ENGINEERING LAB</option>
+                                <option value="INTELLIGENCE INNOVATION LAB">INTELLIGENCE INNOVATION LAB</option>
+                                <option value="SMART SENSOR INTELLIGENT">SMART SENSOR INTELLIGENT</option>
+                                <option value="BIOMEDICAL SYSTEMS">BIOMEDICAL SYSTEMS</option>
+                                <option value="ELECTRICAL INTEGRATED DRIVES">ELECTRICAL INTEGRATED DRIVES</option>
+                                <option value="ARTIFICIAL INTELLIGENCE - TECHNOLOGIES">ARTIFICIAL INTELLIGENCE - TECHNOLOGIES</option>
+                                <option value="ARTIFICIAL INTELLIGENCE - INDUSTRIAL APPLICATIONS">ARTIFICIAL INTELLIGENCE - INDUSTRIAL APPLICATIONS</option>
+                                <option value="ARTIFICIAL INTELLIGENCE - SOFTWARE SOLUTIONS">ARTIFICIAL INTELLIGENCE - SOFTWARE SOLUTIONS</option>
+                                <option value="DATA SCIENCE - COMPUTATIONAL INTELLIGENCE">DATA SCIENCE - COMPUTATIONAL INTELLIGENCE</option>
+                                <option value="DATA SCIENCE - BIG DATA ANALYTICS">DATA SCIENCE - BIG DATA ANALYTICS</option>
+                                <option value="DATA SCIENCE - EXPERT SYSTEMS">DATA SCIENCE - EXPERT SYSTEMS</option>
+                                <option value="WEB DESIGN AND DEVELOPMENT">WEB DESIGN AND DEVELOPMENT</option>
+                                <option value="SILK FASHION LAB">SILK FASHION LAB</option>
+                                <option value="INDUSTRIAL WEB AND MOBILE APP DEVELOPMENT">INDUSTRIAL WEB AND MOBILE APP DEVELOPMENT</option>
+                                <option value="INTEGRATED SMART BUILDINGS LAB">INTEGRATED SMART BUILDINGS LAB</option>
+                                <option value="E-MOBILITY LAB">E-MOBILITY LAB</option>
+                                <option value="HUMAN CENTERED AI LAB">HUMAN CENTERED AI LAB</option>
+                                <option value="COMPUTATIONAL BIOLOGY LAB">COMPUTATIONAL BIOLOGY LAB</option>
+                            </select>
+                            <label>Lab Code: </label>
+                            <select id="lab_id" name="lab_id">
+                                <option value="SLB001">SLB001</option>
+                                <option value="SLB002">SLB002</option>
+                                <option value="SLB003">SLB003</option>
+                                <option value="SLB004">SLB004</option>
+                                <option value="SLB005">SLB005</option>
+                                <option value="SLB006">SLB006</option>
+                                <option value="SLB007">SLB007</option>
+                                <option value="SLB008">SLB008</option>
+                                <option value="SLB009">SLB009</option>
+                                <option value="SLB010">SLB010</option>
+                                <option value="SLB011">SLB011</option>
+                                <option value="SLB012">SLB012</option>
+                                <option value="SLB014">SLB014</option>
+                                <option value="SLB015">SLB015</option>
+                                <option value="SLB016">SLB016</option>
+                                <option value="SLB018">SLB018</option>
+                                <option value="SLB019">SLB019</option>
+                                <option value="SLB020">SLB020</option>
+                                <option value="SLB021">SLB021</option>
+                                <option value="SLB022">SLB022</option>
+                                <option value="SLB023">SLB023</option>
+                                <option value="SLB024">SLB024</option>
+                                <option value="SLB025">SLB025</option>
+                                <option value="SLB026">SLB026</option>
+                                <option value="SLB027">SLB027</option>
+                                <option value="SLB029">SLB029</option>
+                                <option value="SLB030">SLB030</option>
+                                <option value="SLB031">SLB031</option>
+                                <option value="SLB032">SLB032</option>
+                                <option value="SLB033">SLB033</option>
+                                <option value="SLB034">SLB034</option>
+                                <option value="SLB037">SLB037</option>
+                                <option value="SLB038">SLB038</option>
+                                <option value="SLB041">SLB041</option>
+                                <option value="SLB043">SLB043</option>
+                                <option value="SLB045">SLB045</option>
+                                <option value="SLB046">SLB046</option>
+                                <option value="SLB047">SLB047</option>
+                                <option value="SLB048">SLB048</option>
+                                <option value="SLB049">SLB049</option>
+                                <option value="SLB050">SLB050</option>
+                                <option value="SLB051">SLB051</option>
+                                <option value="SLB052">SLB052</option>
+                                <option value="SLB053">SLB053</option>
+                                <option value="SLB054">SLB054</option>
+                                <option value="SLB055">SLB055</option>
+                                <option value="SLB056">SLB056</option>
+                                <option value="SLB057">SLB057</option>
+                                <option value="SLB059">SLB059</option>
+                                <option value="SLB062">SLB062</option>
+                                <option value="SLB063">SLB063</option>
+                                <option value="SLB064">SLB064</option>
+                                <option value="SLB065">SLB065</option>
+                                <option value="SLB066">SLB066</option>
+                                <option value="SLB067">SLB067</option>
+                                <option value="SLB068">SLB068</option>
+                                <option value="SLB069">SLB069</option>
+                                <option value="SLB070">SLB070</option>
+                                <option value="SLB071">SLB071</option>
+                                <option value="SLB072">SLB072</option>
+                                <option value="SLB073">SLB073</option>
+                                <option value="SLB074">SLB074</option>
+                                <option value="SLB075">SLB075</option>
+                                <option value="SLB076">SLB076</option>
+                                <option value="SLB077">SLB077</option>
+
+                            </select>
+                            <label>Phone Number: </label>
+                            <input type="text" name="phone_number" placeholder="Ex:8072677XXX" required />
+                            <button class="login-button btn" name='stud_insert'>Submit</button>
+                        </form>
+                    </div>
+                <?php
+                } else {
+                ?>
+                    <div class="display_profile">
+                        <?php
+                        $sql = "SELECT * FROM student_details Where email IN ('$username')";
+                        $result = mysqli_query($link, $sql);
+                        if (mysqli_num_rows($result) > 0) {
+                            while ($row = mysqli_fetch_assoc($result)) { ?>
+                                <div>
+                                    <ul class="responsive-table">
+                                        <li>
+                                            <div class="col col-1" data-label="Name: "><?php echo $row['name']; ?></div>
+                                            <div class="col col-2" data-label="Roll No: "><?php echo $row['roll_no'] ?></div>
+                                            <div class="col col-3" data-label="E-mail: "><?php echo $row['email'] ?></div>
+                                            <div class="col col-4" data-label="Lab Name: "><?php echo $row['lab_name'] ?></div>
+                                            <div class="col col-5" data-label="Lab Code: "><?php echo $row['lab_id'] ?></div>
+                                            <div class="col col-6" data-label="Phone Number: "><?php echo $row['phone_number'] ?></div>
+                                        </li>
+                                    </ul>
                                 </div>
                             <?php
                             }
+                        }
+                        $team = 0;
+                        $sql = "SELECT * FROM team";
+                        $result = mysqli_query($link, $sql);
+                        if (mysqli_num_rows($result) > 0) {
+                            while ($row = mysqli_fetch_assoc($result)) {
+                                if ($username == $row['email']) {
+                                    $team = 1;
+                                    break;
+                                }
+                            }
                             ?>
-                        </div>
+                            <div style='width:100vw; overflow-x:hidden;' class="team">
+                                <?php
+                                if ($team == 1) {
+                                    $team_name = $row['team_id'];
+                                    $sql = "SELECT * FROM team Where team_id IN ('$team_name')";
+                                    $result1 = mysqli_query($link, $sql); ?>
+                                    <h3 style="text-align: center;">
+                                        <?php
+                                        echo 'Team Name: ';
+                                        echo $row['team_id'];
+                                        ?>
+                                    </h3>
+                                    <center>
+                                        <br>
+                                        <div>
+                                            <table>
+                                                <tr>
+                                                    <th>Name</th>
+                                                    <th>Position</th>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                        <?php
+                                        while ($row = mysqli_fetch_assoc($result1)) { ?>
+                                            <div>
+                                                <table>
+                                                    <tr>
+                                                        <td><?php echo $row['email']; ?></td>
+                                                        <td><?php echo $row['designation']; ?></td>
+                                                    </tr>
+                                                </table>
+                                            </div>
+                                        <?php }
+                                        echo '<br>'; ?>
+                                    </center>
+                                <?php
+                                } else {
+                                ?>
+                                    <center>
+                                        <div class="create_team">
+                                            <h3>You have not created team yet!</h3>
+                                            <p><a href="create_team.php">Click Here</a> To Create A Team!</p>
+                                        </div>
+                                    </center>
+                                <?php
+                                }
+                                ?>
+                            </div>
+                        <?php
+                        }
+                        ?>
+                    </div>
             <?php
-                    }
                 }
             }
+
             ?>
         </div>
     </section>

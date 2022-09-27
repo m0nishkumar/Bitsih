@@ -1,37 +1,50 @@
 <?php
 session_start();
-
-// Check if the user is already logged in, if yes then redirect him to welcome page
-if (!isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] !== true) {
-    header("location: login.php");
-    exit;
-}
 include 'config.php';
-$id = $_POST['title_id'];
-error_reporting(0);
+$title_id = $_POST['title_name'];
+$username = $_SESSION['username'];
+$sql = "SELECT * FROM team WHERE email IN('$username')";
+$result = mysqli_query($link, $sql);
+$row = mysqli_fetch_assoc($result);
+$team =  $row['team_id'];
+
 ?>
 
 <html>
 
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Saira:wght@600&display=swap');
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
-    </style>
-    <link rel="stylesheet" href="glassmorphism.css">
-    <link rel="stylesheet" href="button.css">
+    <meta name="viewport" content="width=device-width, initial-scale=2.0">
+    <link rel="stylesheet" href="reg-css.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="./bubble.css">
     <link rel="stylesheet" href="./css/style.css">
     <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
 </head>
 
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Saira:wght@600&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+
+    button {
+        background-color: #2d1574;
+        color: aliceblue;
+        font-family: 'poppins';
+        font-weight: 900;
+        border-radius: 15px;
+        width: 100px;
+        height: 55px;
+        font-size: 15px;
+        transition: 0.5s all, box-shadow 0.5s 1s;
+    }
+</style>
+
 <body>
     <div>
         <nav>
             <div class="logo">
                 <img src="./assets/logo.png" alt="Logo Image">
+                <h3>Bannari Amman Institute of Technology</h3>
+                <h4>BIT</h4>
             </div>
             <div class="hamburger">
                 <div class="line1"></div>
@@ -62,23 +75,21 @@ error_reporting(0);
                 <span style="font-family: 'Saira';font-size:30px;">
                     <div class="title">Registration Form</div>
                 </span>
-                <form action="register.php" method="POST">
-                    <i class="fa fa-user"></i>
-                    <input type="text" placeholder="Team Name..." name="name">
+                <form action="register_1.php" method="POST">
+                    <input type="hidden" value="<?php echo $team ?>" name="name" required>
+                    <input type="hidden" value="<?php echo $username ?>" name="email" required>
                     <br>
-                    <i class="fa fa-comments"></i>
-                    <input type="text" placeholder="Email..." name="email">
-                    <br>
-                    <input type="hidden" value=<?php echo $id; ?> name="problem">
+                    <input type="hidden" value=<?php echo $title_id; ?> name="problem" required>
                     <i style="font-size:15px" class="fa">&#xf044;</i>
-                    <input type="text" placeholder="link" name="link">
+                    <input type="text" placeholder="link" name="link" required>
                     <div class="hover">
                         <button>
                             <div class="text" style="color:white;">Register</div>
                         </button>
-                        <div class="text1">now!</div>
                     </div>
                 </form>
+                <p style="color: red; padding-left:20px;padding-right:20px;padding-top:30px;">**Note: Abstract must be uploaded in drive and link should be shared here with the permissions.</p>
+
             </div>
         </div>
     </center>

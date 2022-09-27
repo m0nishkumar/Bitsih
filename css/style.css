@@ -1924,9 +1924,8 @@ input[type=number] {
 }
 
 .team {
-    text-align: center;
-    margin-left: 10vw;
     font-family: "poppins", sans-serif;
+    width: 80vw;
 }
 
 .input_box {

@@ -2,46 +2,45 @@
 // Include config file
 require_once "config.php";
 session_start();
- 
+
 // Check if the user is already logged in, if yes then redirect him to welcome page
-if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
+if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true) {
     header("location: login.php");
     exit;
 }
 
 $username = $password = $confirm_password = "";
 $username_err = $password_err = $confirm_password_err = "";
- 
- 
+
+
 // Processing form data when form is submitted
-if($_SERVER["REQUEST_METHOD"] == "POST"){
- 
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
     // Validate username
-    if(empty(trim($_POST["username"]))){
-        $username_err = "Please enter a username.";
-    } 
-     else{
+    if (empty(trim($_POST["username"]))) {
+        $username_err = "Please enter your Mail.";
+    } else {
         // Prepare a select statement
         $sql = "SELECT id FROM users WHERE username = ?";
-        
-        if($stmt = mysqli_prepare($link, $sql)){
+
+        if ($stmt = mysqli_prepare($link, $sql)) {
             // Bind variables to the prepared statement as parameters
             mysqli_stmt_bind_param($stmt, "s", $param_username);
-            
+
             // Set parameters
             $param_username = trim($_POST["username"]);
-            
+
             // Attempt to execute the prepared statement
-            if(mysqli_stmt_execute($stmt)){
+            if (mysqli_stmt_execute($stmt)) {
                 /* store result */
                 mysqli_stmt_store_result($stmt);
-                
-                if(mysqli_stmt_num_rows($stmt) == 1){
-                    $username_err = "This username is already taken.";
-                } else{
+
+                if (mysqli_stmt_num_rows($stmt) == 1) {
+                    $username_err = "This Mail is already taken.";
+                } else {
                     $username = trim($_POST["username"]);
                 }
-            } else{
+            } else {
                 echo "Oops! Something went wrong. Please try again later.";
             }
 
@@ -49,55 +48,55 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             mysqli_stmt_close($stmt);
         }
     }
-    
+
     // Validate password
-    if(empty(trim($_POST["password"]))){
-        $password_err = "Please enter a password.";     
-    } elseif(strlen(trim($_POST["password"])) < 6){
+    if (empty(trim($_POST["password"]))) {
+        $password_err = "Please enter a password.";
+    } elseif (strlen(trim($_POST["password"])) < 6) {
         $password_err = "Password must have atleast 6 characters.";
-    } else{
+    } else {
         $password = trim($_POST["password"]);
     }
-    
+
     // Validate confirm password
-    if(empty(trim($_POST["confirm_password"]))){
-        $confirm_password_err = "Please confirm password.";     
-    } else{
+    if (empty(trim($_POST["confirm_password"]))) {
+        $confirm_password_err = "Please confirm password.";
+    } else {
         $confirm_password = trim($_POST["confirm_password"]);
-        if(empty($password_err) && ($password != $confirm_password)){
+        if (empty($password_err) && ($password != $confirm_password)) {
             $confirm_password_err = "Password did not match.";
         }
     }
-    
+
     // Check input errors before inserting in database
-    if(empty($username_err) && empty($password_err) && empty($confirm_password_err)){
-        
+    if (empty($username_err) && empty($password_err) && empty($confirm_password_err)) {
+
         // Prepare an insert statement
         $sql = "INSERT INTO users (username, password) VALUES (?, ?)";
-        
 
 
-        if($stmt = mysqli_prepare($link, $sql)){
+
+        if ($stmt = mysqli_prepare($link, $sql)) {
             // Bind variables to the prepared statement as parameters
             mysqli_stmt_bind_param($stmt, "ss", $param_username, $param_password);
-            
+
             // Set parameters
             $param_username = $username;
             $param_password = password_hash($password, PASSWORD_DEFAULT); // Creates a password hash
-            
+
             // Attempt to execute the prepared statement
-            if(mysqli_stmt_execute($stmt)){
+            if (mysqli_stmt_execute($stmt)) {
                 // Redirect to login page
                 header("location: login.php");
-            } else{
+            } else {
                 echo "Oops! Something went wrong. Please try again later.";
             }
 
             // Close statement
             mysqli_stmt_close($stmt);
-                }
+        }
     }
-    
+
 
     // Close connection
     mysqli_close($link);
@@ -106,47 +105,57 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
 
 ?>
- 
+
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <title>LINESTO | SIGNUP</title>
+    <title>BIT | SIGNUP</title>
     <link rel="stylesheet" href="./css/style-login.css">
 
     <style>
-        body{ background-color: #f2f4fe;
-              max-height: 100vh;}
+        body {
+            background-color: #f2f4fe;
+            max-height: 100vh;
+        }
     </style>
 </head>
-<body><center><section class="signup_forms">
-    <div class="wrapper_signup">
-        <b><h3>Set up your account</h3></b>
-        <p>Join us and start your journey with us.</p>
-        <div class="investor">
-            <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
-                <div class="form-group_signup">
-                    <input type="text" name="username" placeholder="Enter your username" class="form-control <?php echo (!empty($username_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $username; ?>">
-                    <span class="invalid-feedback"><?php echo $username_err; ?></span>
-                </div>    
-                <div class="form-group_signup">
-                    <input type="password" name="password" placeholder="Enter your password" class="form-control <?php echo (!empty($password_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $password; ?>">
-                    <span class="invalid-feedback"><?php echo $password_err; ?></span>
+
+<body>
+    <center>
+        <section class="signup_forms">
+            <div class="wrapper_signup">
+                <b>
+                    <h3>Set up your account</h3>
+                </b>
+                <p>Join us and start your journey with us.</p>
+                <div class="investor">
+                    <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+                        <div class="form-group_signup">
+                            <input type="text" name="username" placeholder="Enter your Mail ID" class="form-control <?php echo (!empty($username_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $username; ?>">
+                            <span class="invalid-feedback"><?php echo $username_err; ?></span>
+                        </div>
+                        <div class="form-group_signup">
+                            <input type="password" name="password" placeholder="Enter your password" class="form-control <?php echo (!empty($password_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $password; ?>">
+                            <span class="invalid-feedback"><?php echo $password_err; ?></span>
+                        </div>
+                        <div class="form-group_signup">
+                            <input type="password" name="confirm_password" placeholder="Re-enter your password" class="form-control <?php echo (!empty($confirm_password_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $confirm_password; ?>">
+                            <span class="invalid-feedback"><?php echo $confirm_password_err; ?></span>
+                        </div>
+                        <div class="form-group_signup">
+                            <input type="submit" class="login_btn" value="Submit">
+                        </div>
+                    </form>
                 </div>
-                <div class="form-group_signup">
-                    <input type="password" name="confirm_password" placeholder="Re-enter your password" class="form-control <?php echo (!empty($confirm_password_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $confirm_password; ?>">
-                    <span class="invalid-feedback"><?php echo $confirm_password_err; ?></span>
-                </div>
-                <div class="form-group_signup">
-                    <input type="submit" class="login_btn" value="Submit">
-                </div>               
-            </form>
-        </div>   
-    </div></section>
-    <p class="link">Already have an account? <a href="login.php">Login here</a></p>
-</center> 
+            </div>
+        </section>
+        <p class="link">Already have an account? <a href="login.php">Login here</a></p>
+    </center>
 </body>
+
 </html>
 <?php
 ?>

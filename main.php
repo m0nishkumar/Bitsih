@@ -12,6 +12,13 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
 $username = $_SESSION["username"];
 
 error_reporting(0); // For not showing any error
+$sql = "SELECT * FROM student_details Where email IN ('$username')";
+$result = mysqli_query($link, $sql);
+if (mysqli_num_rows($result) > 0) {
+    while ($row = mysqli_fetch_assoc($result)) {
+        $name = $row['name'];
+    }
+}
 ?>
 
 <!DOCTYPE html>
@@ -57,7 +64,7 @@ error_reporting(0); // For not showing any error
     <section class="home" id="home">
         <?php
         ?>
-        <h3>Hey <?php echo $username ?> !</h3>
+        <h3>Hey <?php echo $name ?> !</h3>
         <h4 class="main_title">BIT INTRACOLLEGE<br>SOFTWARE HACKATHON<span>'</span>22</h4>
         <h2>BIT INTRACOLLEGE<br>SOFTWARE HACKATHON<span>'</span>22</h2>
 

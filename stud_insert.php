@@ -1,4 +1,4 @@
-<?php 
+<?php
 include 'config.php';
 
 $name = $_POST['name'];
@@ -8,8 +8,11 @@ $lab_name = $_POST['lab_name'];
 $lab_id = $_POST['lab_id'];
 $phone_number = $_POST['phone_number'];
 
-if (isset($_POST['stud_insert']) ){
+if (isset($_POST['stud_insert'])) {
     $sql = "INSERT INTO student_details (name,roll_no,email,lab_name,lab_id,phone_number) VALUES ('$name', '$roll_no', '$email', '$lab_name', '$lab_id', '$phone_number')";
+    $result = mysqli_query($link, $sql);
+    $sql = "UPDATE lab_count SET count = count + 1 WHERE lab_name = '$lab_name'";
+    echo $sql;
     $result = mysqli_query($link, $sql);
 }
 header('location: profile.php');

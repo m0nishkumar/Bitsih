@@ -66,7 +66,7 @@ $result = mysqli_query($link, $sql);
                             <p><?php echo $row['brief'] ?></p>
                             <div class="title-btn-2 ">
                                 <form action="registeration.php" method="POST">
-                                    <input type="hidden" name='title_id' value='<?php echo $row['id']; ?>'>
+                                    <input type="hidden" name='title_name' value='<?php echo $row['id']; ?>'>
                                     <button><span>Register Now!</span></button>
                                 </form>
                                 <a><span><?php echo $row['count'] ?> / 15 Registered</span></a>

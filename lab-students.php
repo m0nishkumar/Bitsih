@@ -40,9 +40,9 @@ $id = $_POST['title_id'];
             <div class="line3"></div>
         </div>
         <ul class="nav-links">
-            <li><a class="active nodeHover" href="admin.php">Problem-Statement</a></li>
+            <li><a class="nodeHover" href="admin.php">Problem-Statement</a></li>
             <li><a class="nodeHover" href="admin-final-part.php">Final-Participants</a></li>
-            <li><a class="nodeHover" href="lab-students.php">Lab-wise Participants</a></li>
+            <li><a class="active nodeHover" href="lab-students.php">Lab-wise Participants</a></li>
             <li><a class="btn login-button nodeHover" href="admin_logout.php">Logout</a></li>
         </ul>
     </nav>
@@ -50,39 +50,19 @@ $id = $_POST['title_id'];
         <h1>REVIEW PARTICIPANT<span>'</span>S</h1>
         <ul class="responsive-table">
             <li class="table-header">
-                <div class="col col-1">Team</div>
-                <div class="col col-2">Leader Email</div>
-                <div class="col col-3">Problem Code</div>
-                <div class="col col-4">Abstract Link</div>
-                <div class="col col-5">Status</div>
-
+                <div class="col col-1">Lab Name</div>
+                <div class="col col-2">Number of Students</div>
             </li>
         </ul>
         <?php
-        $sql = "SELECT * FROM register WHERE problem = $id";
+        $sql = "SELECT lab_name,count FROM lab_count ORDER BY count DESC";
         $result = mysqli_query($link, $sql);
         if (mysqli_num_rows($result) > 0) {
             while ($row = mysqli_fetch_assoc($result)) { ?>
                 <ul class="responsive-table">
                     <li class="table-row">
-                        <div class="col col-1" data-label="Team: "><?php echo $row['name'] ?></div>
-                        <div class="col col-2" data-label="Leader Email: "><?php echo $row['email'] ?></div>
-                        <div class="col col-3" data-label="Problem Code: "><?php echo $row['problem'] ?></div>
-                        <div class="col col-4" data-label="Abstract Link: "><a href="<?php echo $row['link'] ?>" target="_blank" rel="noreferrer noopener">Click Here! </a></div>
-                        <div class="col col-5 accept-reject" data-label="Status: ">
-                            <form action="review-final.php" method="POST">
-                                <input type="hidden" name="name" value="<?php echo $row['name'] ?>" />
-                                <input type="hidden" name="roll_no" value="<?php echo $row['roll_no'] ?>" />
-                                <input type="hidden" name="email" value="<?php echo $row['email'] ?>" />
-                                <input type="hidden" name="phonenumber" value="<?php echo $row['phonenumber'] ?>" />
-                                <input type="hidden" name="lab" value="<?php echo $row['lab'] ?>" />
-                                <input type="hidden" name="lab_id" value="<?php echo $row['lab_id'] ?>" />
-                                <input type="hidden" name="problem" value="<?php echo $row['problem'] ?>" />
-                                <input type="hidden" name="link" value="<?php echo $row['link'] ?>" />
-                                <button class="accept" name="accept"><i class="fa fa-check accept" aria-hidden="true"></i></button>
-                            </form>
-                            <form action="review-final.php" method="POST"><button class="reject" name="reject"><i class="fa fa-close reject" aria-hidden="true"></i></button></form>
-                        </div>
+                        <div class="col col-1" data-label="Lab Name: "><?php echo $row['lab_name'] ?></div>
+                        <div class="col col-2" data-label="No. of Students: "><?php echo $row['count'] ?></div>
                     </li>
                 </ul>
             <?php  }
@@ -102,7 +82,7 @@ $id = $_POST['title_id'];
 
     <footer>
         <div id="footer" class="footer-content">
-            <h3>HACKATHON'22</h3>
+            <h3>BIT INTRACOLLEGE HACKATHON'22</h3>
             <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy.</p>
             <ul class="socials">
                 <li></li>
