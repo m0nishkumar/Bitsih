@@ -6,6 +6,7 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
     exit;
 }
 include 'config.php';
+error_reporting(0);
 
 $username = $_SESSION["username"];
 ?>
@@ -20,6 +21,7 @@ $username = $_SESSION["username"];
     <link rel="stylesheet" href="./css/style.css" />
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
 
@@ -115,6 +117,27 @@ $username = $_SESSION["username"];
         tr {
             display: flex;
             flex-direction: row;
+        }
+
+        select {
+            width: 272px;
+            height: 42px;
+            line-height: 2;
+            float: left;
+            display: block;
+            padding: 0;
+            margin: 0;
+            padding-left: 20px;
+            border: none;
+            box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.08);
+            font-size: 1rem;
+            border-radius: 4px;
+        }
+
+        p {
+            margin-top: 25px;
+            margin-left: 15px;
+            font-family: 'Poppins', sans-serif;
         }
     </style>
     <title>BIT | SIH</title>
@@ -311,6 +334,7 @@ $username = $_SESSION["username"];
                             <input type="text" name="phone_number" placeholder="Ex:8072677XXX" required />
                             <button class="login-button btn" name='stud_insert'>Submit</button>
                         </form>
+                        <p><a href="https://docs.google.com/spreadsheets/d/1YrR1pqdsx0mrsfe1nWjhmjhReZgjuEys/edit?usp=sharing&ouid=101494206720533475609&rtpof=true&sd=true" target="_blank">Click here</a> to check your lab code.</p>
                     </div>
                 <?php
                 } else {
@@ -399,12 +423,38 @@ $username = $_SESSION["username"];
                         }
                         ?>
                     </div>
-            <?php
-                }
-            }
+                    <?php
+                    $sql = "SELECT * FROM register WHERE email = '$username'";
+                    $result = mysqli_query($link, $sql);
+                    $row = mysqli_fetch_assoc($result);
+                    $exist = $row['email'];
+                    if ($exist == $username) {
+                    ?>
 
-            ?>
-        </div>
+                        <div style="display:flex; flex-direction:row; margin:auto;padding-bottom:50px;">
+                            <p>SOP's Review Status : </p>
+                            <?php
+                            $sql = "SELECT * FROM final_participants Where team = '$team_name'";
+                            $result = mysqli_query($link, $sql);
+                            $row = mysqli_fetch_assoc($result);
+                            $status = $row['status'];
+                            if ($status == 'Initiated') {
+                            ?>
+                                <p><i style="color: #fdc60f;" class="fa fa-circle" aria-hidden="true"></i><?php echo ' ';
+                                                                                                            echo $status; ?></p>
+                            <?php } elseif ($status == 'Accepted') { ?>
+                                <p><i style="color: #00e600;" class="fa fa-circle" aria-hidden="true"></i><?php echo ' ';
+                                                                                                            echo $status; ?></p>
+                            <?php  } else { ?>
+                                <p><i style="color: #ff0000;" class="fa fa-circle" aria-hidden="true"></i><?php echo ' ';
+                                                                                                            echo $status; ?></p>
+                <?php      }
+                        }
+                    }
+                }
+
+                ?>
+                        </div>
     </section>
 
 

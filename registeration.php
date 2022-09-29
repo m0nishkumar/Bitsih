@@ -1,6 +1,7 @@
 <?php
 session_start();
 include 'config.php';
+error_reporting(0);
 $title_id = $_POST['title_name'];
 $username = $_SESSION['username'];
 $sql = "SELECT * FROM team WHERE email IN('$username')";
@@ -81,7 +82,7 @@ $team =  $row['team_id'];
                     <br>
                     <input type="hidden" value=<?php echo $title_id; ?> name="problem" required>
                     <i style="font-size:15px" class="fa">&#xf044;</i>
-                    <input type="text" placeholder="link" name="link" required>
+                    <input type="text" placeholder="Abstract drive Link" name="link" required>
                     <div class="hover">
                         <button>
                             <div class="text" style="color:white;">Register</div>

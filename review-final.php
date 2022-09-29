@@ -1,5 +1,6 @@
 <?php
 session_start();
+#error_reporting(0);
 
 // Check if the user is already logged in, if yes then redirect him to welcome page
 if (!isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] !== true) {
@@ -8,28 +9,18 @@ if (!isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] !== true) {
 }
 include 'config.php';
 
-$name = $_POST['name'];
-$roll_no = $_POST['roll_no'];
-$email = $_POST['email'];
-$phonenumber = $_POST['phonenumber'];
-$lab = $_POST['lab'];
-$lab_id = $_POST['lab_id'];
-$problem = $_POST['problem'];
-$url = $_POST['link'];
+$name = $_POST['team'];
 
 
 if (isset($_POST['accept'])) {
-    $sql = "INSERT INTO final_participants (name,roll_no,email,phonenumber,lab,lab_id,problem,link) VALUES ('$name','$roll_no','$email','$phonenumber','$lab','$lab_id','$problem','$url')";
+    $sql = "UPDATE final_participants SET status = 'Accepted' WHERE team = '$name'";
     echo $sql;
     $result = mysqli_query($link, $sql);
-    $sql1 = "DELETE FROM register WHERE problem = $problem";
-    $result1 = mysqli_query($link, $sql1);
-    $sqll = "UPDATE lab_count SET final_count = $final_count + 1 WHERE lab_name = $lab";
+    $sqll = "UPDATE lab_count set final_count=final_count+1 WHERE team='$name'";
     $resultt = mysqli_query($link, $sqll);
-}
-if (isset($_POST['reject'])) {
-    $sql = "DELETE FROM register WHERE problem = $problem";
+} else {
+    $sql = "UPDATE final_participants SET status = 'Rejected' WHERE team = '$name'";
     $result = mysqli_query($link, $sql);
 }
 
-header("location: admin-select.php"); ?>
+header("location: admin-select.php");

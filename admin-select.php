@@ -59,29 +59,26 @@ $id = $_POST['title_id'];
             </li>
         </ul>
         <?php
-        $sql = "SELECT * FROM register WHERE problem = $id";
+        $sql = "SELECT * FROM final_participants WHERE problem = $id and status = 'Initiated'";
         $result = mysqli_query($link, $sql);
         if (mysqli_num_rows($result) > 0) {
             while ($row = mysqli_fetch_assoc($result)) { ?>
+
                 <ul class="responsive-table">
                     <li class="table-row">
-                        <div class="col col-1" data-label="Team: "><?php echo $row['name'] ?></div>
+                        <div class="col col-1" data-label="Team: "><?php echo $row['team'] ?></div>
                         <div class="col col-2" data-label="Leader Email: "><?php echo $row['email'] ?></div>
                         <div class="col col-3" data-label="Problem Code: "><?php echo $row['problem'] ?></div>
                         <div class="col col-4" data-label="Abstract Link: "><a href="<?php echo $row['link'] ?>" target="_blank" rel="noreferrer noopener">Click Here! </a></div>
                         <div class="col col-5 accept-reject" data-label="Status: ">
                             <form action="review-final.php" method="POST">
-                                <input type="hidden" name="name" value="<?php echo $row['name'] ?>" />
-                                <input type="hidden" name="roll_no" value="<?php echo $row['roll_no'] ?>" />
-                                <input type="hidden" name="email" value="<?php echo $row['email'] ?>" />
-                                <input type="hidden" name="phonenumber" value="<?php echo $row['phonenumber'] ?>" />
-                                <input type="hidden" name="lab" value="<?php echo $row['lab'] ?>" />
-                                <input type="hidden" name="lab_id" value="<?php echo $row['lab_id'] ?>" />
-                                <input type="hidden" name="problem" value="<?php echo $row['problem'] ?>" />
-                                <input type="hidden" name="link" value="<?php echo $row['link'] ?>" />
+                                <input type="hidden" name="team" value="<?php echo $row['team'] ?>" />
                                 <button class="accept" name="accept"><i class="fa fa-check accept" aria-hidden="true"></i></button>
                             </form>
-                            <form action="review-final.php" method="POST"><button class="reject" name="reject"><i class="fa fa-close reject" aria-hidden="true"></i></button></form>
+                            <form action="review-final.php" method="POST">
+                                <input type="hidden" name="team" value="<?php echo $row['team'] ?>" />
+                                <button class="reject" name="reject"><i class="fa fa-close reject" aria-hidden="true"></i></button>
+                            </form>
                         </div>
                     </li>
                 </ul>

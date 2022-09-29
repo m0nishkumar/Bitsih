@@ -22,28 +22,7 @@ $n = $t . $j;
 $jp=0;
 $ju=0;
 $ww=array();
-$sq="SELECT email FROM student_details";
-$re=$conn->query($sq);
-if($re->num_rows >0){
-    while($ro=$re->fetch_assoc()){
-        for($i=0;$i<count($tf);$i++){   
-            if($tf[$i]==$ro["email"]){
-               array_push($ww,$tf[$i]);
-            }
-        }
-
-    }
-
-}
-$difference = array_diff($tf, $ww);
-if(count($ww)!=count($tf)){
-    ?><h3 style="text-align: center; margin-top:25vh;font-family:Saira"><?php echo("Listed Students have to create profile to form team!");?></h3><?php
-    for($i=0;$i<count($tf);$i++){
-        ?><ol style="text-align: center;font-family:poppins"><?php echo("<br>".$difference[$i]);?></ol><?php
-    }
-    ?><br><?php
-    ?><h3 style="text-align: center; margin-top:25vh;font-family:Saira"><?php exit("Dai intha place la profile ku header poturuda so that they can create profile bugs iruntha sollu da!");?></h3><?php
-}
+$ss=array();
 
 for ($i = 0; $i < count($tf); $i++) {
     for ($j = $i; $j < count($tf) - 1; $j++) {
@@ -55,12 +34,43 @@ for ($i = 0; $i < count($tf); $i++) {
     }
 }
 
+$rw="SELECT id from student_details where email in ('$a','$b','$c','$d','$e','$f')";
+$rr=$conn->query($rw);
+if($rr->num_rows > 0){
+    while($qw=$rr->fetch_assoc()){
+        array_push($ss,$qw["id"]);
+    }
+}
+
+$sq="SELECT email FROM student_details";
+$re=$conn->query($sq);
+if($re->num_rows >0){
+    while($ro=$re->fetch_assoc()){
+        for($i=0;$i<count($tf);$i++){   
+            if($tf[$i]==$ro["email"]){
+               array_push($ww,$tf[$i]);
+            }
+        }
+
+    }
+}
+$difference = array_diff($tf, $ww);
+if(count($ww)!=count($tf)){
+    ?><h3 style="text-align: center; margin-top:25vh;font-family:Saira"><?php echo("Listed Students have to create account / profile to form team!");?></h3><?php
+    for($i=0;$i<count($tf);$i++){
+        ?><ol style="text-align: center;font-family:poppins"><?php echo("<br>".$difference[$i]); ?></ol><?php
+
+    }
+    ?><br><?php
+    ?><h3 style="text-align: center; margin-top:25vh;font-family:Saira"><?php header("refresh:10;url=create_team.php"); exit();?></h3><?php
+}
+
+
 $sqlll = "SELECT team_id,email FROM team";
 $result = $conn->query($sqlll);
 $po = 0;
 
 if ($result->num_rows > 0) {
-    echo($po);
     while ($row = $result->fetch_assoc()) {
         for ($i = 0; $i < $p; $i++) {
             if ($row["email"] == $tf[$i]) {
@@ -99,30 +109,29 @@ if ($result->num_rows > 0) {
         }
     }
     if ($po == 0) {
-        $sql = "INSERT INTO team (email,team_id,designation,parent_id,register_name) VALUES('$a','$t','leader','10','$n');";
+        $sql = "INSERT INTO team (email,team_id,designation,parent_id,register_name) VALUES('$a','$t','leader','$ss[0]','$n');";
         $conn->query($sql);
 
         switch ($p) {
             case "6":
-                $sql = "INSERT INTO team (email,team_id,designation,parent_id,register_name) VALUES('$d','$t','members','10','$n');";
+                $sql = "INSERT INTO team (email,team_id,designation,parent_id,register_name) VALUES('$d','$t','members','$ss[3]','$n');";
                 $conn->query($sql);
             case "5":
-                $sql = "INSERT INTO team (email,team_id,designation,parent_id,register_name) VALUES('$e','$t','members','10','$n');";
+                $sql = "INSERT INTO team (email,team_id,designation,parent_id,register_name) VALUES('$e','$t','members','$ss[4]','$n');";
                 $conn->query($sql);
             case "4":
-                $sql = "INSERT INTO team (email,team_id,designation,parent_id,register_name) VALUES('$f','$t','members','10','$n');";
+                $sql = "INSERT INTO team (email,team_id,designation,parent_id,register_name) VALUES('$f','$t','members','$ss[5]','$n');";
                 $conn->query($sql);
             case "3":
-                $sql = "INSERT INTO team (email,team_id,designation,parent_id,register_name) VALUES('$c','$t','members','10','$n');";
+                $sql = "INSERT INTO team (email,team_id,designation,parent_id,register_name) VALUES('$c','$t','members','$ss[2]','$n');";
                 $conn->query($sql);
 
-                $sql = "INSERT INTO team (email,team_id,designation,parent_id,register_name) VALUES('$b','$t','members','10','$n');";
+                $sql = "INSERT INTO team (email,team_id,designation,parent_id,register_name) VALUES('$b','$t','members','$ss[1]','$n');";
                 $conn->query($sql); ?>
 
                 <h3 style="text-align: center; margin-top:49vh;"><?php echo ("Successfully Registered!"); ?></h3>
 <?php }
-        header("refresh:10;url=profile.php");
+        header("refresh:2;url=profile.php");
     }
 }
-header("refresh:10;url=create_team.php");
 ?>
