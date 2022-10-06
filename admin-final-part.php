@@ -63,7 +63,7 @@ $id = $_POST['title_id'];
             while ($row = mysqli_fetch_assoc($result)) { ?>
                 <ul class="responsive-table">
                     <li class="table-row">
-                        <div class="col col-1" data-label="Team: "><?php echo $row['name'] ?></div>
+                        <div class="col col-1" data-label="Team: "><?php echo $row['team'] ?></div>
                         <div class="col col-2" data-label="Leader Email: "><?php echo $row['email'] ?></div>
                         <div class="col col-3" data-label="Problem Code: "><?php echo $row['problem'] ?></div>
                         <div class="col col-4" data-label="Abstract Link: "><a href="<?php echo $row['link'] ?>" target="_blank" rel="noreferrer noopener">Click Here! </a></div>

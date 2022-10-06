@@ -51,18 +51,22 @@ $id = $_POST['title_id'];
         <ul class="responsive-table">
             <li class="table-header">
                 <div class="col col-1">Lab Name</div>
-                <div class="col col-2">Number of Students</div>
+                <div class="col col-2">Number of Students Registered</div>
+                <div class="col col-3">Number of Students Selected</div>
+
             </li>
         </ul>
         <?php
-        $sql = "SELECT lab_name,count FROM lab_count ORDER BY count DESC";
+        $sql = "SELECT * FROM lab_count ORDER BY count DESC";
         $result = mysqli_query($link, $sql);
         if (mysqli_num_rows($result) > 0) {
             while ($row = mysqli_fetch_assoc($result)) { ?>
                 <ul class="responsive-table">
                     <li class="table-row">
                         <div class="col col-1" data-label="Lab Name: "><?php echo $row['lab_name'] ?></div>
-                        <div class="col col-2" data-label="No. of Students: "><?php echo $row['count'] ?></div>
+                        <div class="col col-2" data-label="No. of Students Registered: "><?php echo $row['count'] ?></div>
+                        <div class="col col-3" data-label="No. of Students Selected: "><?php echo $row['final_count'] ?></div>
+
                     </li>
                 </ul>
             <?php  }

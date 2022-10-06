@@ -10,14 +10,33 @@ if (!isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] !== true) {
 include 'config.php';
 
 $name = $_POST['team'];
+$username = $_SESSION['username'];
+
 
 
 if (isset($_POST['accept'])) {
     $sql = "UPDATE final_participants SET status = 'Accepted' WHERE team = '$name'";
-    echo $sql;
     $result = mysqli_query($link, $sql);
-    $sqll = "UPDATE lab_count set final_count=final_count+1 WHERE team='$name'";
-    $resultt = mysqli_query($link, $sqll);
+    $sql = "SELECT email FROM team Where team_id = '$name'";
+    $result = mysqli_query($link, $sql);
+    while ($row = mysqli_fetch_assoc($result)) {
+        $email = $row['email'];
+        $sel = "SELECT lab_name FROM student_details WHERE email = '$email'";
+        $resulttt = mysqli_query($link, $sel);
+        $row = mysqli_fetch_assoc($resulttt);
+        $lab_name = $row['lab_name'];
+        $sqll = "UPDATE lab_count SET final_count=final_count+1 WHERE lab_name='$lab_name'";
+        $resultt = mysqli_query($link, $sqll);
+    }
+    $sql = "SELECT * FROM team";
+    $result = mysqli_query($link, $sql);
+    while ($row = mysqli_fetch_assoc($result)) {
+        if ($row['team_id'] == $name) {
+            $eemail  = $row['email'];
+            $command = escapeshellcmd('python mail.py --username ' . $eemail);
+            $output = shell_exec($command);
+        }
+    }
 } else {
     $sql = "UPDATE final_participants SET status = 'Rejected' WHERE team = '$name'";
     $result = mysqli_query($link, $sql);

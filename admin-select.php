@@ -73,11 +73,11 @@ $id = $_POST['title_id'];
                         <div class="col col-5 accept-reject" data-label="Status: ">
                             <form action="review-final.php" method="POST">
                                 <input type="hidden" name="team" value="<?php echo $row['team'] ?>" />
-                                <button class="accept" name="accept"><i class="fa fa-check accept" aria-hidden="true"></i></button>
+                                <button class="accept" name="accept" onclick="return confirm('Are you sure you want to Accept?')"><i class="fa fa-check accept" aria-hidden="true"></i></button>
                             </form>
                             <form action="review-final.php" method="POST">
                                 <input type="hidden" name="team" value="<?php echo $row['team'] ?>" />
-                                <button class="reject" name="reject"><i class="fa fa-close reject" aria-hidden="true"></i></button>
+                                <button class="reject" name="reject" onclick="return confirm('Are you sure you want to Reject?')"><i class=" fa fa-close reject" aria-hidden="true"></i></button>
                             </form>
                         </div>
                     </li>

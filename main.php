@@ -64,16 +64,20 @@ if (mysqli_num_rows($result) > 0) {
     <section class="home" id="home">
         <?php
         ?>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
         <h3>Hey <?php echo $name ?> !</h3>
-        <h4 class="main_title">BIT INTRACOLLEGE<br>SOFTWARE HACKATHON<span>'</span>22</h4>
+        <h4 class="main_title">BIT'<span>S</span> HACK'22</h4>
+        <center>
+            <h5 class="">BIT SOFTWARE HACKATHON 2022</h5>
+        </center><br>
         <h2>BIT INTRACOLLEGE<br>SOFTWARE HACKATHON<span>'</span>22</h2>
 
         <a class="login-button join nodeHover" href="prob-state.php">Join the Event </a>
-        <div class="circle"></div>
-        <div class="circle"></div>
-        <div class="circle"></div>
-        <div class="circle"></div>
-        <div class="circle"></div>
+
         <div id="mouse-scroll">
             <div class="mouse" id="about">
                 <div class="mouse-in"></div>
@@ -158,7 +162,7 @@ if (mysqli_num_rows($result) > 0) {
                 <h1 class="numbering">1</h1>
                 <div class="left">
                     <h3><span>Register for the event</h3>
-                    <h5>before <span>September 30</span> / 11:59 pm</h5>
+                    <h5>before <span>October 10</span> / 11:59 pm</h5>
                 </div>
                 <div class="right">
                     <h4>Create your team and<br>register for the event</h4>
@@ -211,7 +215,7 @@ if (mysqli_num_rows($result) > 0) {
             <center>
                 <img src="./assets/event.png" alt="Event Image" width="120px" height="120px">
                 <p><i class="fa fa-dot-circle-o" style="font-size:15px"></i> Venue: Main Auditorium</p>
-                <p><i class="fa fa-dot-circle-o" style="font-size:15px"></i> Date : September 30 to October 2</p>
+                <p><i class="fa fa-dot-circle-o" style="font-size:15px"></i> Date : October 10 to October 12</p>
             </center>
         </div>
         <div class="continer">
@@ -283,7 +287,7 @@ if (mysqli_num_rows($result) > 0) {
             mm = String(today.getMonth() + 1).padStart(2, "0"),
             yyyy = today.getFullYear(),
             nextYear = yyyy + 1,
-            dayMonth = "09/30/",
+            dayMonth = "12/03/",
             birthday = dayMonth + yyyy;
 
         today = mm + "/" + dd + "/" + yyyy;

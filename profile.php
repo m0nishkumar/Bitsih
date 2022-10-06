@@ -334,7 +334,7 @@ $username = $_SESSION["username"];
                             <input type="text" name="phone_number" placeholder="Ex:8072677XXX" required />
                             <button class="login-button btn" name='stud_insert'>Submit</button>
                         </form>
-                        <p><a href="https://docs.google.com/spreadsheets/d/1YrR1pqdsx0mrsfe1nWjhmjhReZgjuEys/edit?usp=sharing&ouid=101494206720533475609&rtpof=true&sd=true" target="_blank">Click here</a> to check your lab code.</p>
+                        <p><a href="https://docs.google.com/spreadsheets/d/1YrR1pqdsx0mrsfe1nWjhmjhReZgjuEys/edit?usp=sharing&ouid=101494206720533475609&rtpof=true&sd=true" target="_blank" rel="noreferrer noopener">Click here</a> to check your lab code.</p>
                     </div>
                 <?php
                 } else {
@@ -456,7 +456,6 @@ $username = $_SESSION["username"];
                 ?>
                         </div>
     </section>
-
 
     <footer>
         <div id="footer" class="footer-content">

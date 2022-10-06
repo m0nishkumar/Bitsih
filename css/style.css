@@ -292,7 +292,6 @@ nav {
     font-weight: 800;
     letter-spacing: 5px;
     z-index: 9;
-    margin-bottom: 4vh;
 }
 
 .home span {
@@ -304,6 +303,10 @@ nav {
     text-align: center;
     margin-top: 30vh;
     font-family: 'Poppins', sans-serif;
+}
+
+.home h5 {
+    letter-spacing: 7.5px;
 }
 
 .active {
