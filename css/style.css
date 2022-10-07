@@ -292,6 +292,7 @@ nav {
     font-weight: 800;
     letter-spacing: 5px;
     z-index: 9;
+    margin-bottom: 1vh;
 }
 
 .home span {
@@ -369,28 +370,18 @@ nav {
 
 /* Circle animations */
 
-.circle:nth-child(2) {
-    --c1: #194aa6;
-    --c2: #194aa6;
-    --size: max(3rem, 10vw);
-    --delay: 0s;
-    top: 50%;
-    left: 25%;
-    z-index: -99;
-}
-
 .circle:nth-child(3) {
     --c1: #ed9999;
     --c2: #ed8383;
-    --size: max(3rem, 10vw);
+    --size: max(3rem, 7vw);
     --delay: 0s;
-    top: 30%;
-    left: 50%;
+    top: 20%;
+    left: 80%;
     z-index: -99;
 }
 
 .circle:nth-child(4) {
-    --c1: #a0e3f2;
+    --c1: #66cbe1;
     --c2: #2fa7c2;
     --animation: drift2;
     --delay: 0s;
@@ -438,6 +429,14 @@ nav {
 /*For Mobile View*/
 
 @media screen and (max-width: 640px) {
+    .prob-home h1 {
+        align-items: center;
+        text-align: center;
+        font-family: 'saira', sans-serif;
+        font-size: 40px;
+        padding-top: 40vh;
+        margin-bottom: 55prob-homevh;
+    }
     .home h1 {
         display: none;
     }
@@ -445,12 +444,12 @@ nav {
         color: #2d1574;
         align-items: center;
         text-align: center;
-        padding-top: 10vh;
+        padding-top: 5vh;
         font-size: 29px;
         font-weight: 800;
         letter-spacing: 5px;
         z-index: 9;
-        margin-bottom: 5vh;
+        margin-bottom: 2vh;
     }
     .home {
         max-width: 100vw;
@@ -474,7 +473,7 @@ nav {
         flex-direction: column;
         text-align: center;
         flex-wrap: wrap;
-        min-height: 120vh;
+        min-height: 160vh;
     }
     .points-left,
     .points-center,
@@ -585,14 +584,6 @@ nav {
         margin: 5px;
         margin-bottom: 10px;
     }
-    .prob-home h1 {
-        align-items: center;
-        text-align: center;
-        font-family: 'saira', sans-serif;
-        font-size: 40px;
-        padding-top: 40vh;
-        margin-bottom: 35vh;
-    }
     .neumorphic-card {
         min-height: 230px;
     }
@@ -608,9 +599,37 @@ nav {
     .home h4 {
         display: none;
     }
+    .about h3 {
+        margin-top: 10vh;
+        font-family: "Saira", sans-serif;
+        margin-left: 7vw;
+    }
+    .about npa {
+        margin-left: 50vw;
+    }
+    .about {
+        min-height: 110vh;
+    }
+    .home h5 {
+        display: none;
+    }
 }
 
 @media screen and (min-width: 640px) {
+    .contentBox-glass h3 {
+        margin-left: 4vw;
+    }
+    .about {
+        min-height: 90vh;
+    }
+    .about h3 {
+        font-family: "Saira", sans-serif;
+        margin-left: 7vw;
+        margin-top: 5vh;
+    }
+    .about npa {
+        margin-left: 74vw;
+    }
     .home h2 {
         display: none;
     }
@@ -691,10 +710,6 @@ nav {
     }
 }
 
-.about {
-    min-height: 70vh;
-}
-
 *:before,
 *:after {
     content: "";
@@ -731,7 +746,7 @@ nav {
 }
 
 .sphere {
-    margin-top: 145vh;
+    margin-top: 160vh;
     margin-left: 50vw;
 }
 
@@ -903,7 +918,7 @@ nav {
 }
 
 .about-container {
-    width: 40vw;
+    width: 50vw;
     height: 45vh;
     margin-left: 10vw;
     margin-top: 20vh;
@@ -914,14 +929,14 @@ nav {
     line-height: 30px;
 }
 
-.about-container u {
+.about-container h2 {
     color: #4523ac;
 }
 
 .key-points {
     box-sizing: border-box;
     width: 70vw;
-    height: 35vh;
+    height: 46vh;
     background-color: #aa8cfe0f;
     border-radius: 10px;
     border: 1px solid #c4b0ff98;
@@ -1498,6 +1513,7 @@ footer {
     align-items: center;
     flex-direction: column;
     overflow-x: hidden;
+    max-height: 50vh;
 }
 
 .container-01 h2 {
@@ -1626,7 +1642,7 @@ footer {
 }
 
 .contentBox-glass {
-    min-height: 60vh;
+    height: fit-content;
     width: 80vw;
     box-shadow: 0 4px 15px -2px rgba( 31, 38, 135, 0.37);
     backdrop-filter: blur( 4px);
@@ -1635,6 +1651,7 @@ footer {
     border: 1px solid rgba( 255, 255, 255, 0.18);
     background-color: #c4b0ff1a;
     padding: 20px;
+    margin: auto;
 }
 
 .contentBox-glass h3 {
@@ -1714,7 +1731,7 @@ footer {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    margin-top: 30vh;
+    margin-top: 8vh;
 }
 
 .no-record {
@@ -1937,4 +1954,22 @@ input[type=number] {
     font-family: "Saira", sans-serif;
     text-align: center;
     margin-right: 5%;
+}
+
+.cash {
+    width: 20vw;
+    margin: auto;
+    margin-top: 5vh;
+}
+
+.cash h2 {
+    font-family: "Poppins", sans-serif;
+    margin-left: 33vw;
+    font-size: 40px;
+    font-weight: 600;
+}
+
+.cash span {
+    font-family: "Saira", sans-serif;
+    color: #194aa6
 }

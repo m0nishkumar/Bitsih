@@ -29,13 +29,12 @@ if (mysqli_num_rows($result) > 0) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="./css/style.css" />
-
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 
 
-    <title>BIT | SIH</title>
+    <title>BIT'S HACK'22</title>
 </head>
 
 <body>
@@ -70,11 +69,16 @@ if (mysqli_num_rows($result) > 0) {
         <div class="circle"></div>
         <div class="circle"></div>
         <h3>Hey <?php echo $name ?> !</h3>
-        <h4 class="main_title">BIT'<span>S</span> HACK'22</h4>
+
+        <h4 class="main_title">BIT'<span style="font-size:60px">S</span> HACK'22</h4>
         <center>
-            <h5 class="">BIT SOFTWARE HACKATHON 2022</h5>
+            <h5 style="background-color:#000; width:30vw;color:#fff;border-radius:2px; padding-left:5px;padding-bottom:0%;">BIT SOFTWARE HACKATHON 2022</h5>
         </center><br>
-        <h2>BIT INTRACOLLEGE<br>SOFTWARE HACKATHON<span>'</span>22</h2>
+        <h4 class="main_title" style="padding-top:0%; font-size:34px;">CASH PRIZE WORTH <span style="letter-spacing: 5px; font-size: 50px;">3 LAKHS</span></h4>
+
+
+        <h2>BIT'<span style="color:#7f58f3;font-size:30px;padding-bottom:0%;">S</span> HACK'22</h2><br>
+        <h2 class="main_title" style="padding-top:0%; font-size:15px;margin-bottom:10vh;">CASH PRIZE WORTH <span style="letter-spacing: 5px; font-size: 20px;">3 LAKHS</span></h2>
 
         <a class="login-button join nodeHover" href="prob-state.php">Join the Event </a>
 
@@ -90,50 +94,62 @@ if (mysqli_num_rows($result) > 0) {
         </div>
     </section>
 
+
     <section class="about">
+        <h3>
+            <ai style="font-size: 30px;">“</ai><span style="color: #4523ac; font-size:30px;">E</span>verybody has a creative potential and from the moment you can express this creative potential , you can start changing the world”<br>
+            <npa style="font-family:'Poppins', sans-serif ; ">- Paul Coelho</npa>
+        </h3>
         <div class="about-container">
-            <h2><u>BIT HACKATHON</u></h2>
+            <h2 style="color:#4523ac;">BIT'S HACK'22</h2>
             <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                It is a pioneer program for the BIT students to explore the depth of recent technologies and its usage over the problems that they are going to handle. BIT'S HACK'22 assist students to:
+            </p><br>
+            <p><i class="fa fa-dot-circle-o" style="font-size:15px"></i>&nbsp;&nbsp;Their enthralling ideas to solve real-life problem statements and win prizes.</p><br>
+            <p><i class="fa fa-dot-circle-o" style="font-size:15px"></i>&nbsp;&nbsp;Get guidance from the top experts from the industry and academia.</p><br>
+            <p><i class="fa fa-dot-circle-o" style="font-size:15px"></i>&nbsp;&nbsp;Learn new skills, improve presentation skills and have fun developing & coding.</p>
+
             </p>
+            <div class='sphere'>
+                <div class='ring'></div>
+                <div class='ring'></div>
+                <div class='ring'></div>
+                <div class='ring'></div>
+                <div class='ring'></div>
+                <div class='ring'></div>
+                <div class='ring'></div>
+                <div class='ring'></div>
+                <div class='ring'></div>
+                <div class='ring'></div>
+                <div class='ring'></div>
+                <div class='ring'></div>
+                <div class='ring'></div>
+                <div class='ring'></div>
+                <div class='ring'></div>
+                <div class='ring'></div>
+            </div>
         </div>
-        <div class='sphere'>
-            <div class='ring'></div>
-            <div class='ring'></div>
-            <div class='ring'></div>
-            <div class='ring'></div>
-            <div class='ring'></div>
-            <div class='ring'></div>
-            <div class='ring'></div>
-            <div class='ring'></div>
-            <div class='ring'></div>
-            <div class='ring'></div>
-            <div class='ring'></div>
-            <div class='ring'></div>
-            <div class='ring'></div>
-            <div class='ring'></div>
-            <div class='ring'></div>
-            <div class='ring'></div>
-        </div>
+
     </section>
+    
     <h1></h1>
     <div class="key-points">
         <div class="points-left">
             <img src="./assets/Layer 2.png" alt="Futuristic Vector" width="100px" height="100px">
-            <h1>Futuristic</h1>
-            <p>Lorem Ipsum is simply dummy<br> text of the printing and <br>typesetting industry.</p>
+            <h1>Internal Problem <br>statements</h1>
+            <p>The stakeholders within the campus<br> like Verticals Team, Skills Team,<br> CoE Team, Academics Team etc requiring solutions for the problems existing in the campus.</p>
         </div>
         <hr>
         <div class="points-center">
             <img src="./assets/Layer 0.png" alt="Ingenious Vector" width="100px" height="100px">
-            <h1>Ingenious</h1>
-            <p>Lorem Ipsum is simply dummy<br> text of the printing and <br>typesetting industry.</p>
+            <h1>Open Innovation category</h1>
+            <p>To submit innovative ideas that can be implemented within our campus.</p>
         </div>
         <hr>
         <div class="points-right">
             <img src="./assets/Layer 3.png" alt="Empowering Vector" width="100px" height="100px">
-            <h1>Empowering</h1>
-            <p>Lorem Ipsum is simply dummy<br> text of the printing and <br>typesetting industry.</p>
+            <h1>Smart India Hackathon</h1>
+            <p>Problem statements will be shared from Smart India Hackathon 2022 Portal. </p>
         </div>
     </div>
     <div class="count-down">
@@ -162,7 +178,7 @@ if (mysqli_num_rows($result) > 0) {
                 <h1 class="numbering">1</h1>
                 <div class="left">
                     <h3><span>Register for the event</h3>
-                    <h5>before <span>October 10</span> / 11:59 pm</h5>
+                    <h5>before <span>November 20</span> / 11:59 pm</h5>
                 </div>
                 <div class="right">
                     <h4>Create your team and<br>register for the event</h4>
@@ -198,7 +214,7 @@ if (mysqli_num_rows($result) > 0) {
         </div>
     </section>`
     <p class="infooo">ABOUT</p>
-    <h1 class="info">HACKATHON'22</h1>
+    <h1 class="info">BIT'S HACK'22</h1>
     <section class="reg">
         <div class="continer">
             <h3>Registration</h3>
@@ -215,22 +231,26 @@ if (mysqli_num_rows($result) > 0) {
             <center>
                 <img src="./assets/event.png" alt="Event Image" width="120px" height="120px">
                 <p><i class="fa fa-dot-circle-o" style="font-size:15px"></i> Venue: Main Auditorium</p>
-                <p><i class="fa fa-dot-circle-o" style="font-size:15px"></i> Date : October 10 to October 12</p>
+                <p><i class="fa fa-dot-circle-o" style="font-size:15px"></i> Date :3rd and 4th December 2022</p>
             </center>
         </div>
         <div class="continer">
             <h3>Benefits</h3>
             <center>
                 <img src="./assets/benefits.png" alt="Benefits Image" width="120px" height="120px">
-                <p><i class="fa fa-dot-circle-o" style="font-size:15px"></i> Exposure to SDG problems</p>
-                <p><i class="fa fa-dot-circle-o" style="font-size:15px"></i> Nam vitae nibh risus.s</p>
+                <p><i class="fa fa-dot-circle-o" style="font-size:15px"></i> Industry Mentoring for Top Performing Teams for their Projects/Products</p>
             </center>
         </div>
     </section>
+
     <footer>
         <div id="footer" class="footer-content">
-            <h3>BIT INTRACOLLEGE HACKATHON'22</h3>
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy.</p>
+            <h3>BIT'S HACK'22</h3>
+            <p style="width: 50vw;">
+                <bold style="font-weight: 600;">Hackathon Coordinators:<br></bold> Dr.E.L.Pradeesh/Dr.P.Purusothaman<br>
+                <bold style="font-weight: 600;">Email: </bold>pradeeshel@bitsathy.ac.in/purusothaman@bitsathy.ac.in<br>
+                <bold style="font-weight: 600;">Phone: <br></bold> +91 9944820144 / +91 9952013214
+            </p>
             <ul class="socials">
                 <li></li>
 
@@ -239,9 +259,9 @@ if (mysqli_num_rows($result) > 0) {
                 <ul class="f-menu">
                     <li><a class="nodeHover" href="#home">Home</a></li>
                     <li><a class="nodeHover" href="#about">About</a></li>
-                    <li><a class="nodeHover" href="">Guidelines</a></li>
-                    <li><a class="nodeHover" href="">Support</a></li>
+                    <li><a class="nodeHover" href="#guidelines">Guidelines</a></li>
                     <li><a class="nodeHover" href="prob-state.php">Problem-Statement</a></li>
+                    <li><a class="nodeHover" href="profile.php">Profile</a></li>
                 </ul>
             </div>
         </div>
@@ -249,8 +269,8 @@ if (mysqli_num_rows($result) > 0) {
             <p>Created with ❤ by <a class="nodeHover" href="#">Kavinkumar B</a> & <a class="nodeHover" href="#">Monish kumar B</a> </p>
 
         </div>
-
     </footer>
+
 </body>
 <!-- partial -->
 <script src="./js/script.js"></script>

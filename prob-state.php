@@ -34,10 +34,7 @@ $result = mysqli_query($link, $sql);
     <link rel="stylesheet" href="./css/style.css" />
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
-
-
-    <title>BIT | SIH</title>
+    <title>BIT'S HACK'22</title>
 </head>
 
 <body>
@@ -109,8 +106,12 @@ $result = mysqli_query($link, $sql);
 
     <footer>
         <div id="footer" class="footer-content">
-            <h3>BIT INTRACOLLEGE HACKATHON'22</h3>
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy.</p>
+            <h3>BIT'S HACK'22</h3>
+            <p style="width: 50vw;">
+                <bold style="font-weight: 600;">Hackathon Coordinators:<br></bold> Dr.E.L.Pradeesh/Dr.P.Purusothaman<br>
+                <bold style="font-weight: 600;">Email: </bold>pradeeshel@bitsathy.ac.in/purusothaman@bitsathy.ac.in<br>
+                <bold style="font-weight: 600;">Phone: <br></bold> +91 9944820144 / +91 9952013214
+            </p>
             <ul class="socials">
                 <li></li>
 
@@ -120,8 +121,8 @@ $result = mysqli_query($link, $sql);
                     <li><a class="nodeHover" href="main.php#home">Home</a></li>
                     <li><a class="nodeHover" href="main.php#about">About</a></li>
                     <li><a class="nodeHover" href="main.php#guidelines">Guidelines</a></li>
-                    <li><a class="nodeHover" href="">Support</a></li>
                     <li><a class="nodeHover" href="prob-state.php">Problem-Statement</a></li>
+                    <li><a class="nodeHover" href="profile.php">Profile</a></li>
                 </ul>
             </div>
         </div>
@@ -129,8 +130,8 @@ $result = mysqli_query($link, $sql);
             <p>Created with ❤ by <a class="nodeHover" href="#">Kavinkumar B</a> & <a class="nodeHover" href="#">Monish kumar B</a> </p>
 
         </div>
-
     </footer>
+
 </body>
 <!-- partial -->
 <script src="./js/script.js"></script>

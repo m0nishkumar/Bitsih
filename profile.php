@@ -431,33 +431,35 @@ $username = $_SESSION["username"];
                     if ($exist == $username) {
                     ?>
 
-                        <div style="display:flex; flex-direction:row; margin:auto;padding-bottom:50px;">
-                            <p>SOP's Review Status : </p>
-                            <?php
-                            $sql = "SELECT * FROM final_participants Where team = '$team_name'";
-                            $result = mysqli_query($link, $sql);
-                            $row = mysqli_fetch_assoc($result);
+                        <?php
+                        $sql = "SELECT * FROM final_participants Where team = '$team_name'";
+                        $result = mysqli_query($link, $sql);
+                        while ($row = mysqli_fetch_assoc($result)) {
                             $status = $row['status'];
-                            if ($status == 'Initiated') {
-                            ?>
-                                <p><i style="color: #fdc60f;" class="fa fa-circle" aria-hidden="true"></i><?php echo ' ';
-                                                                                                            echo $status; ?></p>
-                            <?php } elseif ($status == 'Accepted') { ?>
-                                <p><i style="color: #00e600;" class="fa fa-circle" aria-hidden="true"></i><?php echo ' ';
-                                                                                                            echo $status; ?></p>
-                            <?php  } else { ?>
-                                <p><i style="color: #ff0000;" class="fa fa-circle" aria-hidden="true"></i><?php echo ' ';
-                                                                                                            echo $status; ?></p>
-                <?php      }
+                            $code = $row['problem'];
+                        ?> <div style="display:flex; flex-direction:row; margin:auto;">
+                                <p> <?php echo ("SOP's review status of $code :"); ?> </p><?php
+                                                                                            if ($status == 'Initiated') {
+                                                                                            ?>
+                                    <p><i style="color: #fdc60f;" class="fa fa-circle" aria-hidden="true"></i><?php echo ' ';
+                                                                                                                echo $status; ?></p>
+                                <?php } elseif ($status == 'Accepted') { ?>
+                                    <p><i style="color: #00e600;" class="fa fa-circle" aria-hidden="true"></i><?php echo ' ';
+                                                                                                                echo $status; ?></p>
+                                <?php  } else { ?>
+                                    <p><i style="color: #ff0000;" class="fa fa-circle" aria-hidden="true"></i><?php echo ' ';
+                                                                                                                echo $status; ?></p>
+                                <?php      } ?>
+                            </div> <?php
+                                }
+                            }
                         }
                     }
-                }
 
-                ?>
-                        </div>
+                                    ?>
     </section>
 
-    <footer>
+    <footer style="margin-top: 8vh;">
         <div id="footer" class="footer-content">
             <h3>BIT INTRACOLLEGE HACKATHON'22</h3>
             <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy.</p>

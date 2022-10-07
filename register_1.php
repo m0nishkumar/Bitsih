@@ -7,14 +7,18 @@ $d = $_POST["link"];
 $g = $_POST["problem"];
 $username = $_SESSION["username"];
 
-$c = "SELECT email FROM register WHERE team='$a'";
+
+$c = "SELECT email,problem FROM register WHERE team='$a'";
 $result = $conn->query($c);
 if ($result->num_rows > 2) {
-    while ($row = $result->fetch_assoc()) { ?>
-        <h3 style="text-align: center; margin-top:49vh;"><?php echo ("You have already resigerted!"); ?></h3>
+    while ($row = $result->fetch_assoc()) { ?><?php
+        if($row["problem"]== $g){
+    ?>
+        <h3 style="text-align: center; margin-top:49vh;"><?php echo ("You have already registered for this problem statement!"); ?></h3>
         <?php
         header("refresh:5;url=main.php");
         exit();
+    }
     }
 }
 

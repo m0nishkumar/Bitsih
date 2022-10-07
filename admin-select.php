@@ -73,6 +73,7 @@ $id = $_POST['title_id'];
                         <div class="col col-5 accept-reject" data-label="Status: ">
                             <form action="review-final.php" method="POST">
                                 <input type="hidden" name="team" value="<?php echo $row['team'] ?>" />
+                                <input type="hidden" name="id" value="<?php echo $id ?>" />
                                 <button class="accept" name="accept" onclick="return confirm('Are you sure you want to Accept?')"><i class="fa fa-check accept" aria-hidden="true"></i></button>
                             </form>
                             <form action="review-final.php" method="POST">
@@ -99,19 +100,21 @@ $id = $_POST['title_id'];
 
     <footer>
         <div id="footer" class="footer-content">
-            <h3>HACKATHON'22</h3>
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy.</p>
+            <h3>BIT'S HACK'22</h3>
+            <p style="width: 50vw;">
+                <bold style="font-weight: 600;">Hackathon Coordinators:<br></bold> Dr.E.L.Pradeesh/Dr.P.Purusothaman<br>
+                <bold style="font-weight: 600;">Email: </bold>pradeeshel@bitsathy.ac.in/purusothaman@bitsathy.ac.in<br>
+                <bold style="font-weight: 600;">Phone: <br></bold> +91 9944820144 / +91 9952013214
+            </p>
             <ul class="socials">
                 <li></li>
 
             </ul>
             <div class="footer-menu">
                 <ul class="f-menu">
-                    <li><a class="nodeHover" href="main.php#home">Home</a></li>
-                    <li><a class="nodeHover" href="main.php#about">About</a></li>
-                    <li><a class="nodeHover" href="main.php#guidelines">Guidelines</a></li>
-                    <li><a class="nodeHover" href="">Support</a></li>
                     <li><a class="nodeHover" href="prob-state.php">Problem-Statement</a></li>
+                    <li><a class="nodeHover" href="final-part.php">Final-Participants</a></li>
+                    <li><a class="nodeHover" href="lab-students.php">Lab-Wise-Participants</a></li>
                 </ul>
             </div>
         </div>
@@ -119,7 +122,6 @@ $id = $_POST['title_id'];
             <p>Created with ❤ by <a class="nodeHover" href="#">Kavinkumar B</a> & <a class="nodeHover" href="#">Monish kumar B</a> </p>
 
         </div>
-
     </footer>
 </body>
 <!-- partial -->

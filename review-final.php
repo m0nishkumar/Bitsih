@@ -10,12 +10,12 @@ if (!isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] !== true) {
 include 'config.php';
 
 $name = $_POST['team'];
-$username = $_SESSION['username'];
+$id = $_POST['id'];
 
 
 
 if (isset($_POST['accept'])) {
-    $sql = "UPDATE final_participants SET status = 'Accepted' WHERE team = '$name'";
+    $sql = "UPDATE final_participants SET status = 'Accepted' WHERE team = '$name' and problem = '$id'";
     $result = mysqli_query($link, $sql);
     $sql = "SELECT email FROM team Where team_id = '$name'";
     $result = mysqli_query($link, $sql);
@@ -33,7 +33,9 @@ if (isset($_POST['accept'])) {
     while ($row = mysqli_fetch_assoc($result)) {
         if ($row['team_id'] == $name) {
             $eemail  = $row['email'];
-            $command = escapeshellcmd('python mail.py --username ' . $eemail);
+            $command = escapeshellcmd("python mail.py $eemail $id");
+            echo $command;
+            echo '<br>';
             $output = shell_exec($command);
         }
     }
