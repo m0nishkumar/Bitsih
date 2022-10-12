@@ -1,20 +1,23 @@
 <?php
+
+include 'config.php';
 session_start();
+
 // Check if the user is logged in, if not then redirect him to login page
 if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
     header("location: login.php");
     exit;
 }
-include 'config.php';
-error_reporting(0);
 
 $username = $_SESSION["username"];
+
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
+    <title>BIT'S HACK'22 | PROFILE</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -186,7 +189,7 @@ $username = $_SESSION["username"];
                 if ($info == 0) {
             ?>
                     <div class='input_box'>
-                        <form action="stud_insert" method="POST">
+                        <form action="stud_insert.php" method="POST">
                             <h2>Update Details</h2>
                             <label>Name: </label>
                             <input type="text" name="name" placeholder="Ex:Kavin" required />
@@ -458,11 +461,14 @@ $username = $_SESSION["username"];
 
                                     ?>
     </section>
-
-    <footer style="margin-top: 8vh;">
+ <footer>
         <div id="footer" class="footer-content">
-            <h3>BIT INTRACOLLEGE HACKATHON'22</h3>
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy.</p>
+            <h3>BIT'S HACK'22</h3>
+            <p style="width: 50vw;">
+                <bold style="font-weight: 600;">Hackathon Coordinators:<br></bold> Dr.E.L.Pradeesh/Dr.P.Purusothaman<br>
+                <bold style="font-weight: 600;">Email: </bold>pradeeshel@bitsathy.ac.in/purusothaman@bitsathy.ac.in<br>
+                <bold style="font-weight: 600;">Phone: <br></bold> +91 9944820144 / +91 9952013214
+            </p>
             <ul class="socials">
                 <li></li>
 
@@ -472,16 +478,19 @@ $username = $_SESSION["username"];
                     <li><a class="nodeHover" href="main.php#home">Home</a></li>
                     <li><a class="nodeHover" href="main.php#about">About</a></li>
                     <li><a class="nodeHover" href="main.php#guidelines">Guidelines</a></li>
-                    <li><a class="nodeHover" href="">Support</a></li>
                     <li><a class="nodeHover" href="prob-state.php">Problem-Statement</a></li>
+                    <li><a class="nodeHover" href="profile.php">Profile</a></li>
                 </ul>
             </div>
         </div>
         <div class="footer-bottom">
             <p>Created with ❤ by <a class="nodeHover" href="#">Kavinkumar B</a> & <a class="nodeHover" href="#">Monish kumar B</a> </p>
-        </div>
 
+        </div>
     </footer>
+	<?php 
+		mysqli_close($link);
+	?>
 </body>
 <!-- partial -->
 <script src="./js/script.js"></script>

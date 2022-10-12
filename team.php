@@ -28,7 +28,9 @@ for ($i = 0; $i < count($tf); $i++) {
     for ($j = $i; $j < count($tf) - 1; $j++) {
         if ($tf[$i] == $tf[$j + 1]) {
             ?><h3 style="text-align: center; margin-top:25vh;font-family:Saira"><?php echo("Duplicate email found!");?></h3><?php
-            ?><h3 style="text-align: center; margin-top:25vh;font-family:poppins"><?php exit($tf[$i]);?></h3><?php
+            ?><h3 style="text-align: center; margin-top:25vh;font-family:poppins"><?php echo($tf[$i]);?></h3><?php
+            header("refresh:5;url=create_team.php");
+            exit();      
             
         }
     }
