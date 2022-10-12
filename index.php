@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -37,7 +38,7 @@
             <li><a class="nodeHover" href="#guidelines">Guidelines</a></li>
             <li><a class="nodeHover" href="login.php">Problem-Statement</a></li>
             <li><a class="nodeHover" href="#footer">Contact Us</a></li>
-            <li><a class="login-button nodeHover" href="login.php">Login / Register</a></li>
+            <li><a class="login-button nodeHover" href="/login.php">Login / Register</a></li>
         </ul>
     </nav>
     <section class="home" id="home">
