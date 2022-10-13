@@ -31,9 +31,6 @@ if (mysqli_num_rows($result) > 0) {
     <link rel="stylesheet" href="./css/style.css" />
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
-
-
     <title>BIT'S HACK'22</title>
 </head>
 
@@ -44,6 +41,8 @@ if (mysqli_num_rows($result) > 0) {
         <div class="logo">
             <img src="./assets/logo.png" alt="Logo Image">
             <h3>Bannari Amman Institute of Technology</h3>
+            <h4>BIT</h4>
+
         </div>
         <div class="hamburger">
             <div class="line1"></div>
@@ -61,15 +60,12 @@ if (mysqli_num_rows($result) > 0) {
         </ul>
     </nav>
     <section class="home" id="home">
-        <?php
-        ?>
         <div class="circle"></div>
         <div class="circle"></div>
         <div class="circle"></div>
         <div class="circle"></div>
         <div class="circle"></div>
-        <h3>Hey <?php echo $name ?> !</h3>
-
+        <h3 style="margin-top:19vh">Hey <?php echo $name ?> !</h3>
         <h4 class="main_title">BIT'<span style="font-size:60px">S</span> HACK'22</h4>
         <center>
             <h5 style="background-color:#000; width:30vw;color:#fff;border-radius:2px; padding-left:5px;padding-bottom:0%;">BIT SOFTWARE HACKATHON 2022</h5>
@@ -77,10 +73,12 @@ if (mysqli_num_rows($result) > 0) {
         <h4 class="main_title" style="padding-top:0%; font-size:34px;">CASH PRIZE WORTH <span style="letter-spacing: 5px; font-size: 50px;">3 LAKHS</span></h4>
 
 
-        <h2>BIT'<span style="color:#7f58f3;font-size:30px;padding-bottom:0%;">S</span> HACK'22</h2><br>
-        <h2 class="main_title" style="padding-top:0%; font-size:15px;margin-bottom:10vh;">CASH PRIZE WORTH <span style="letter-spacing: 5px; font-size: 20px;">3 LAKHS</span></h2>
+        <h2 style="margin-top: 10vh;font-size:30px;">BIT'<span style="color:#7f58f3;font-size:33px;padding-bottom:0%;">S</span> HACK'22</h2><br>
+        <h2 class="main_title" style="padding-top:0%; font-size:18px;margin-bottom:10vh;">CASH PRIZE WORTH <span style="letter-spacing: 5px; font-size: 21px;">3 LAKHS</span></h2>
 
         <a class="login-button join nodeHover" href="prob-state.php">Join the Event </a>
+        <p style="text-align: center; margin-top:20px;font-family:poppins;font-size:22px;">on the 3rd and 4th of December</p>
+
 
         <div id="mouse-scroll">
             <div class="mouse" id="about">
@@ -96,8 +94,8 @@ if (mysqli_num_rows($result) > 0) {
 
 
     <section class="about">
-        <h3>
-            <ai style="font-size: 30px;">“</ai><span style="color: #4523ac; font-size:30px;">E</span>verybody has a creative potential and from the moment you can express this creative potential , you can start changing the world”<br>
+        <h3 style="text-align: center;">
+            <ai style="font-size: 30px; ">“</ai><span style="color: #4523ac; font-size:30px;">E</span>verybody has a creative potential and from the moment you can express this creative potential , you can start changing the world”<br>
             <npa style="font-family:'Poppins', sans-serif ; ">- Paul Coelho</npa>
         </h3>
         <div class="about-container">
@@ -131,7 +129,7 @@ if (mysqli_num_rows($result) > 0) {
         </div>
 
     </section>
-    
+
     <h1></h1>
     <div class="key-points">
         <div class="points-left">

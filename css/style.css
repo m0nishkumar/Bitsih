@@ -45,10 +45,12 @@ nav {
 }
 
 .logo h3 {
-    width: 28vw;
+    width: 35vw;
     margin-top: 3vh;
     font-family: 'Poppins', sans-serif;
     font-weight: 600;
+    text-align: left;
+    padding-left: 10px;
     text-transform: capitalize;
 }
 
@@ -292,7 +294,6 @@ nav {
     font-weight: 800;
     letter-spacing: 5px;
     z-index: 9;
-    margin-bottom: 1vh;
 }
 
 .home span {
@@ -302,7 +303,7 @@ nav {
 
 .home h3 {
     text-align: center;
-    margin-top: 30vh;
+    margin-top: 15vh;
     font-family: 'Poppins', sans-serif;
 }
 
@@ -602,7 +603,7 @@ nav {
     .about h3 {
         margin-top: 10vh;
         font-family: "Saira", sans-serif;
-        margin-left: 7vw;
+        padding: 5px;
     }
     .about npa {
         margin-left: 50vw;
@@ -624,7 +625,6 @@ nav {
     }
     .about h3 {
         font-family: "Saira", sans-serif;
-        margin-left: 7vw;
         margin-top: 5vh;
     }
     .about npa {

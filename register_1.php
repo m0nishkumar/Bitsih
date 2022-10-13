@@ -12,15 +12,14 @@ $c = "SELECT email,problem FROM register WHERE team='$a'";
 $result = $conn->query($c);
 if ($result->num_rows > 2) {
     while ($row = $result->fetch_assoc()) { ?><?php
-        if($row["problem"]== $g){
-    ?>
-        <h3 style="text-align: center; margin-top:49vh;"><?php echo ("You have already registered for this problem statement!"); ?></h3>
-        <?php
+                                                ?>
+<h3 style="text-align: center; margin-top:49vh;"><?php echo ("You have already registered!"); ?></h3>
+<?php
         header("refresh:5;url=main.php");
         exit();
     }
-    }
 }
+
 
 $c = "SELECT email FROM team WHERE team_id='$a'";
 $result = $conn->query($c);
@@ -53,21 +52,21 @@ if ($resultt->num_rows > 0) {
 
 
 
-        ?>
+?>
 
-                <h3 style="text-align: center; margin-top:49vh;"><?php echo ("Successfully Registered !"); ?></h3>
+        <h3 style="text-align: center; margin-top:49vh;"><?php echo ("Successfully Registered !"); ?></h3>
 
-            <?php
+    <?php
                 header("refresh:2;url=profile.php");
 
                 $conn->query($sql);
             } else { ?>
-                <h3 style="text-align: center; margin-top:49vh;"><?php echo ("Your team doesn't exist,create a team in profile!"); ?></h3>
-            <?php
+        <h3 style="text-align: center; margin-top:49vh;"><?php echo ("Your team doesn't exist,create a team in profile!"); ?></h3>
+    <?php
                 header("refresh:4;url=profile.php");
             }
         } else { ?>
-            <h3 style="text-align: center; margin-top:49vh;"><?php echo ("Registration Limit has been reached for this problem!"); ?></h3>
+    <h3 style="text-align: center; margin-top:49vh;"><?php echo ("Registration Limit has been reached for this problem!"); ?></h3>
 <?php
             header("refresh:5;url=prob-state.php");
         }

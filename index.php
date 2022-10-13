@@ -51,13 +51,14 @@
         <center>
             <h5 style="background-color:#000; width:30vw;color:#fff;border-radius:2px; padding-left:5px;padding-bottom:0%;">BIT SOFTWARE HACKATHON 2022</h5>
         </center><br>
-        <h4 class="main_title" style="padding-top:0%; font-size:34px;">CASH PRIZE WORTH <span style="letter-spacing: 5px; font-size: 50px;">3 LAKHS</span></h4>
+        <h4 class="main_title" style="padding-top:0%; font-size:34px;">CASH PRIZE WORTH <span style="letter-spacing: 5px; font-size: 50px; padding-top:10px;">3 LAKHS</span></h4>
 
 
-        <h2>BIT'<span style="color:#7f58f3;font-size:30px;padding-bottom:0%;">S</span> HACK'22</h2><br>
+        <h2 style="margin-top:30vh;">BIT'<span style="color:#7f58f3;font-size:30px;padding-bottom:0%;">S</span> HACK'22</h2><br>
         <h2 class="main_title" style="padding-top:0%; font-size:15px;margin-bottom:10vh;">CASH PRIZE WORTH <span style="letter-spacing: 5px; font-size: 20px;">3 LAKHS</span></h2>
 
         <a class="login-button join nodeHover" href="prob-state.php">Join the Event </a>
+        <p style="text-align: center; margin-top:20px;font-family:poppins;font-size:22px;">on the 3rd and 4th of December</p>
 
         <div id="mouse-scroll">
             <div class="mouse" id="about">
@@ -72,14 +73,14 @@
     </section>
 
     <section class="about">
-        <h3>
+        <h3 style="text-align: center;">
             <ai style="font-size: 30px;">“</ai><span style="color: #4523ac; font-size:30px;">E</span>verybody has a creative potential and from the moment you can express this creative potential , you can start changing the world”<br>
             <npa style="font-family:'Poppins', sans-serif ; ">- Paul Coelho</npa>
         </h3>
         <div class="about-container">
             <h2 style="color:#4523ac;">BIT'S HACK'22</h2>
             <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                It is a pioneer program for the BIT students to explore the depth of recent technologies and its usage over the problems that they are going to handle. BIT'S HACK'22 assist students to:
+                It is a pioneer program for BIT students to explore the depth of recent technologies and its usage over the problems that they are going to handle. BIT'S HACK'22 assist students to:
             </p><br>
             <p><i class="fa fa-dot-circle-o" style="font-size:15px"></i>&nbsp;&nbsp;Their enthralling ideas to solve real-life problem statements and win prizes.</p><br>
             <p><i class="fa fa-dot-circle-o" style="font-size:15px"></i>&nbsp;&nbsp;Get guidance from the top experts from the industry and academia.</p><br>

@@ -60,8 +60,9 @@ $result = mysqli_query($link, $sql);
         ?>
                 <div class="contentBox-glass">
                     <h4>Problem Code: <?php echo $row['id'] ?></h4>
-                    <h4 style="margin-bottom:10px; font-size:20px;">Faculty Incharge: <?php echo $row['faculty'] ?></h4>
-                    <h3 style="margin-bottom: 10px;"><?php echo $row['title'] ?></h3>
+                    <h4 style="margin-bottom:10px; font-size:16px;">Faculty Incharge Name: <?php echo $row['faculty'] ?></h4>
+                    <h4 style="margin-bottom:10px; font-size:16px;">Faculty Incharge Mail: <?php echo $row['faculty_mail'] ?></h4>                  
+		    <h3 style="margin-bottom: 10px;"><?php echo $row['title'] ?></h3>
                     <h3 style="font-size:18px;margin-bottom:10px;margin-top:0px;text-align: left;">Objective</h3>
                     <p style="text-align: left;"><?php echo $row['brief'] ?></p>
                     <h3 style="font-size:18px; margin-bottom:10px;margin-top:20px;text-align: left;">Solution Expected</h3>

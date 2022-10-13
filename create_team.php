@@ -1,3 +1,16 @@
+<?php
+include 'config.php';
+session_start();
+
+// Check if the user is logged in, if not then redirect him to login page
+if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
+    header("location: login.php");
+    exit;
+}
+
+$username = $_SESSION["username"];
+error_reporting(0);
+?>
 <html>
 
 <head>
@@ -46,15 +59,13 @@
                 <form action="" method="POST">
                     <label for="cars">Choose Team size:</label>
                     <select id="cars" name="cars">
-                        <option value="3">3</option>
-                        <option value="4">4</option>
                         <option value="5">5</option>
                         <option value="6">6</option>
                     </select>
                     <input type="submit" id="jk">
                 </form>
                 <?php
-                $s = "3";
+                $s = "5";
                 if (isset($_POST["cars"])) {
                     $s = $_POST["cars"];
                 } ?>
@@ -71,6 +82,12 @@
                     <br>
                     <i class="fa fa-user"></i>
                     <input type="text" placeholder=" Member 2's Email..." name="member2" required>
+                    <br>
+                    <i class="fa fa-user"></i>
+                    <input type="text" placeholder=" Member 3's Email..." name="member5" required>
+                    <br>
+                    <i class="fa fa-user"></i>
+                    <input type="text" placeholder=" Member 4's Email..." name="member4" required>
                     <input type="hidden" value=<?php echo $s ?> name="number">
                     <?php
 
@@ -80,20 +97,10 @@
                             <br>
                             <i class="fa fa-user"></i>
                             <input type="text" placeholder=" Member 5   's Email..." name="member3" required>
-                        <?php
-                        case "5":
-                        ?>
-                            <br>
-                            <i class="fa fa-user"></i>
-                            <input type="text" placeholder=" Member 4's Email..." name="member4" required>
-                        <?php
-                        case "4":
-                        ?>
-                            <br><i class="fa fa-user"></i>
-                            <input type="text" placeholder=" Member 3's Email..." name="member5" required><?php
-                                                                                                            break;
-                                                                                                    }
-                                                                                                            ?>
+                    <?php
+                            break;
+                    }
+                    ?>
                     <div class="hover">
                         <button>
                             <div class="text" style="color:white;">Register</div>
