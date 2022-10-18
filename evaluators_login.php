@@ -1,9 +1,10 @@
 <?php
 // Initialize the session
 session_start();
+
 // Check if the user is already logged in, if yes then redirect him to welcome page
-if (isset($_SESSION["admin_loggedin"]) && $_SESSION["admin_loggedin"] === true) {
-    header("location: admin.php");
+if (isset($_SESSION["eval_loggedin"]) && $_SESSION["eval_loggedin"] === true) {
+    header("location: eval_dash.php");
     exit;
 }
 // Include config file
@@ -33,7 +34,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Validate credentials
     if (empty($username_err) && empty($password_err)) {
         // Prepare a select statement
-        $sql = "SELECT* FROM admin_users WHERE username = ?";
+        $sql = "SELECT* FROM eval_users WHERE username = ?";
 
         if ($stmt = mysqli_prepare($link, $sql)) {
             // Bind variables to the prepared statement as parameters
@@ -57,12 +58,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             session_start();
 
                             // Store data in session variables
-                            $_SESSION["admin_loggedin"] = true;
+                            $_SESSION["eval_loggedin"] = true;
                             $_SESSION["id"] = $id;
                             $_SESSION["username"] = $username;
 
                             // Redirect user to welcome page
-                            header("location: admin.php");
+                            header("location: eval_dash.php");
                         } else {
                             // Password is not valid, display a generic error message
                             $login_err = "Invalid username or password.";
@@ -91,7 +92,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <head>
     <meta charset="UTF-8">
-    <title>BIT'S HACK'22 | ADMIN LOGIN</title>
+    <title>BIT'S HACK'22 | EVALUATORS' LOGIN</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="./css/style-login.css">
@@ -109,7 +110,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <center>
         <section class="login_forms">
             <div class="wrapper_login">
-                <h3><b>Welcome Admin</b></h3>
+                <h3><b>Welcome Evaluators</b></h3>
 
                 <p>Please enter your credentials to access your account.</p>
 

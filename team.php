@@ -2,6 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
 </style>
 <?php
+session_start();
 include "conn.php";
 error_reporting(0);
 $t = $_POST['teamname'];
@@ -24,6 +25,12 @@ $ju=0;
 $ww=array();
 $ss=array();
 
+if (!in_array($_SESSION["username"], $tf)){ ?>
+    <h3 style="text-align: center; margin-top:25vh;font-family:Saira"><?php echo("You mail is not included in team!");?></h3>
+    <?php
+    header("refresh:5;url=create_team.php");
+    exit(); 
+}
 for ($i = 0; $i < count($tf); $i++) {
     for ($j = $i; $j < count($tf) - 1; $j++) {
         if ($tf[$i] == $tf[$j + 1]) {

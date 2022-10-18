@@ -2,26 +2,15 @@
 session_start();
 
 // Check if the user is already logged in, if yes then redirect him to welcome page
-if ($_SESSION["username"] != "admin") {
-    header("location: admin_login.php");
+if (!isset($_SESSION["eval_loggedin"]) && $_SESSION["eval_loggedin"] !== true) {
+    header("location: evaluators_login.php");
     exit;
 }
 include 'config.php';
-$sql = "SELECT * FROM problems";
-$result = mysqli_query($link, $sql);
+error_reporting(0);
+$username = $_SESSION["username"];
+
 ?>
-
-<style>
-    @media screen and (min-width: 640px) {
-        #mouse-scroll {
-            display: none;
-        }
-
-        .circle {
-            display: none;
-        }
-    }
-</style>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -31,14 +20,35 @@ $result = mysqli_query($link, $sql);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="./css/style.css" />
-
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-
-
-    <title>BIT'S HACK'22</title>
+    <title>BIT'S HACK'22 | EVALUATE</title>
 </head>
+<style type="text/css">
+    .responsive-table .col-1 {
+        flex-basis: 25%;
+    }
+
+    .responsive-table .col-2 {
+        flex-basis: 25%;
+    }
+
+    .responsive-table .col-3 {
+        flex-basis: 25%;
+    }
+
+    .responsive-table .col-4 {
+        flex-basis: 25%;
+    }
+
+    input {
+        width: 2vw;
+        height: 3vh;
+        border: solid 1px #ccc;
+        border-radius: 3px;
+    }
+</style>
 
 <body>
     <div class="node" id="node"></div>
@@ -54,32 +64,22 @@ $result = mysqli_query($link, $sql);
             <div class="line3"></div>
         </div>
         <ul class="nav-links">
-            <li><a class="active nodeHover" href="admin.php">Problem-Statement</a></li>
-            <li><a class="nodeHover" href="admin-final-part.php">Final-Participants</a></li>
-            <li><a class="nodeHover" href="lab-students.php">Lab-wise Participants</a></li>
+
             <li><a class="btn login-button nodeHover" href="admin_logout.php">Logout</a></li>
         </ul>
     </nav>
     <section class="prob-home" id="home">
-        <h1>REVIEW PARTICIPANT<span>'</span>S</h1>
-        <div id="mouse-scroll">
-            <div class="mouse" id="about">
-                <div class="mouse-in"></div>
-            </div>
-            <div>
-                <span class="down-arrow-1"></span>
-                <span class="down-arrow-2"></span>
-                <span class="down-arrow-3"></span>
-            </div>
-        </div>
-        <div class="circle"></div>
-        <div class="circle"></div>
-        <div class="circle"></div>
-        <div class="circle"></div>
-        <div class="circle"></div>
+        <h1>EVALUATE PARTICIPANT<span>'</span>S</h1>
+        
         <?php
+        $sql = "SELECT * FROM eval_filter WHERE user = '$username'";
+        $result = mysqli_query($link, $sql);
         if (mysqli_num_rows($result) > 0) {
-            while ($row = mysqli_fetch_assoc($result)) {
+            while ($roww = mysqli_fetch_assoc($result)) {
+                $prob_id = $roww['prob_id'];
+                $sqll = "SELECT * FROM problems WHERE id = $prob_id";
+                $resultt = mysqli_query($link, $sqll);
+                $row = mysqli_fetch_assoc($resultt);
         ?>
                 <div class="container-01">
                     <div class="neumorphic-card">
@@ -88,11 +88,10 @@ $result = mysqli_query($link, $sql);
                             <h3><?php echo $row['title'] ?></h3>
                             <p></p>
                             <div class="title-btn">
-                                <form action="admin-select.php" method="POST" class="form">
-                                    <input type="hidden" name='title_id' value='<?php echo $row['id']; ?>'>
-                                    <button><span>Review Participants!</span></button>
+                                <form action="eval_part.php" method="POST" class="form">
+                                    <input type="hidden" name='prob_id' value='<?php echo $row['id']; ?>'>
+                                    <button><span>View Participants!</span></button>
                                 </form>
-                                <a><span><?php echo $row['count'] ?> / 15 Registered</span></a>
                             </div>
                         </div>
                     </div>
@@ -100,7 +99,11 @@ $result = mysqli_query($link, $sql);
         <?php
             }
         }
+
+
         ?>
+
+
     </section>
 
 
@@ -129,7 +132,6 @@ $result = mysqli_query($link, $sql);
 
         </div>
     </footer>
-
 </body>
 <!-- partial -->
 <script src="./js/script.js"></script>
