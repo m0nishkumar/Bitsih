@@ -39,13 +39,8 @@ if (isset($_POST['eval_update'])) {
     <form action="eval_brief.php" method="POST">
         <input type="hidden" name='team' value='<?php echo $team; ?>'>
         <input type="hidden" name='prob_id' value='<?php echo $prob_id; ?>'>
-        <?php
-        header("refresh:2;url=eval_brief.php");
-        ?>
-
     </form>
 <?php
 }
-
-
+header("refresh:2;url=eval_brief.php");
 ?>
