@@ -1,3 +1,6 @@
+<html>
+<link rel="icon" type="image/x-icon" href="/assets/icon.png">
+</html>
 <style>@import url('https://fonts.googleapis.com/css2?family=Saira:wght@600&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
 </style>

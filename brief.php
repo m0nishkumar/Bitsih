@@ -23,11 +23,23 @@ $result = mysqli_query($link, $sql);
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>BIT'S HACK'22</title>
+<link rel="icon" type="image/x-icon" href="/assets/icon.png">
 </head>
 <style>
-    .glassmorphic-card {
-        height: fit-content;
+    @media screen and (min-width: 640px) {
+        #mouse-scroll {
+            display: none;
+        }
+
+        .circle {
+            display: none;
+        }
     }
+@media screen and (max-width: 640px) {
+.prob-home h1{
+margin-bottom:50vh;
+}
+}
 </style>
 
 <body>
@@ -36,6 +48,9 @@ $result = mysqli_query($link, $sql);
     <nav>
         <div class="logo">
             <img src="./assets/logo.png" alt="Logo Image">
+	    <h3>Bannari Amman Institute of Technology</h3>
+            <h4>BIT</h4>
+
         </div>
         <div class="hamburger">
             <div class="line1"></div>
@@ -54,6 +69,21 @@ $result = mysqli_query($link, $sql);
     </nav>
     <section class="prob-home" id="home">
         <h1>PROBLEM STATEMENT<span>'</span>S</h1>
+       <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+ <div id="mouse-scroll">
+            <div class="mouse" id="about">
+                <div class="mouse-in"></div>
+            </div>
+            <div>
+                <span class="down-arrow-1"></span>
+                <span class="down-arrow-2"></span>
+                <span class="down-arrow-3"></span>
+            </div>
+        </div>
         <?php
         if (mysqli_num_rows($result) > 0) {
             while ($row = mysqli_fetch_assoc($result)) {

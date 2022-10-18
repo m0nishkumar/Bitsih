@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="./css/style.css" />
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="icon" type="image/x-icon" href="/assets/icon.png">
     <title>BIT'S HACK'22</title>
 </head>
 
@@ -155,7 +156,7 @@
                 <h1 class="numbering">1</h1>
                 <div class="left">
                     <h3><span>Register for the event</h3>
-                    <h5>before <span>November 20</span> / 11:59 pm</h5>
+                    <h5>before <span>October 30</span> / 11:59 pm</h5>
                 </div>
                 <div class="right">
                     <h4>Create your team and<br>register for the event</h4>
@@ -173,7 +174,7 @@
             <div class="step">
                 <h1 class="numbering">3</h1>
                 <div class="left">
-                    <h3><span>Submit your SOP's</span></h3>
+                    <h3><span>Submit your Abstract</span></h3>
                 </div>
                 <div class="right">
                     <h4>An approach to the chosen<br> statement is to be submitted</h4>
@@ -198,7 +199,7 @@
             <center>
                 <img src="./assets/registration.png" alt="Registration Image" width="120px" height="120px">
                 <h4>Team Strength</h4>
-                <p><i class="fa fa-dot-circle-o" style="font-size:15px"></i> Minimum: 3</p>
+                <p><i class="fa fa-dot-circle-o" style="font-size:15px"></i> Minimum: 5</p>
                 <p><i class="fa fa-dot-circle-o" style="font-size:15px"></i> Maximum: 6</p>
 
             </center>
@@ -243,7 +244,7 @@
             </div>
         </div>
         <div class="footer-bottom">
-            <p>Created with ❤ by <a class="nodeHover" href="#">Kavinkumar B</a> & <a class="nodeHover" href="#">Monish kumar B</a> </p>
+            <p>Created with ❤ by <a class="nodeHover" href="https://www.instagram.com/itskavinhere/">Kavinkumar B</a> & <a class="nodeHover" href="https://www.instagram.com/m0nishkumar/">Monish kumar B</a> </p>
 
         </div>
     </footer>

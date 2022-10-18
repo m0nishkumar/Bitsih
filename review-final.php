@@ -3,10 +3,11 @@ session_start();
 #error_reporting(0);
 
 // Check if the user is already logged in, if yes then redirect him to welcome page
-if (!isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] !== true) {
+if ($_SESSION["username"] != "admin") {
     header("location: admin_login.php");
     exit;
 }
+
 include 'config.php';
 
 $name = $_POST['team'];

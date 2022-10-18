@@ -22,6 +22,12 @@ $result = mysqli_query($link, $sql);
             display: none;
         }
     }
+@media screen and (max-width: 640px) {
+.prob-home h1{
+margin-bottom:50vh;
+}
+}
+
 </style>
 
 <!DOCTYPE html>
@@ -35,6 +41,7 @@ $result = mysqli_query($link, $sql);
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>BIT'S HACK'22</title>
+<link rel="icon" type="image/x-icon" href="/assets/icon.png">
 </head>
 
 <body>

@@ -6,6 +6,7 @@ if ($_SESSION["username"] != "admin") {
     header("location: admin_login.php");
     exit;
 }
+
 include 'config.php';
 $sql = "SELECT * FROM problems";
 $result = mysqli_query($link, $sql);
@@ -31,7 +32,7 @@ $result = mysqli_query($link, $sql);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="./css/style.css" />
-
+<link rel="icon" type="image/x-icon" href="/assets/icon.png">
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 

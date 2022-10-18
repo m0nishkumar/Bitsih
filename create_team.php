@@ -23,10 +23,11 @@
             color: white;
         }
     </style>
-    <title>BIT'S HACK'22 | CREATE TEAM</title>
+    <title>BIT'S HACK'22 | TEAM CREATE</title>
     <link rel="stylesheet" href="./css/team-reg.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="./css/bubble.css">
+<link rel="icon" type="image/x-icon" href="/assets/icon.png">
     <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
 </head>
 
@@ -47,15 +48,13 @@
                 <form action="" method="POST">
                     <label for="cars">Choose Team size:</label>
                     <select id="cars" name="cars">
-                        <option value="3">3</option>
-                        <option value="4">4</option>
                         <option value="5">5</option>
                         <option value="6">6</option>
                     </select>
                     <input type="submit" id="jk">
                 </form>
                 <?php
-                $s = "3";
+                $s = "5";
                 if (isset($_POST["cars"])) {
                     $s = $_POST["cars"];
                 } ?>

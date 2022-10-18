@@ -21,6 +21,7 @@ $team =  $row['team_id'];
     <link rel="stylesheet" href="./css/style.css">
     <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
     <title>BIT'S HACK'22</title>
+<link rel="icon" type="image/x-icon" href="/assets/icon.png">
 
 </head>
 

@@ -23,6 +23,7 @@ error_reporting(0);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="./css/style.css" />
+<link rel="icon" type="image/x-icon" href="/assets/icon.png">
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
@@ -143,6 +144,21 @@ error_reporting(0);
             margin-left: 15px;
             font-family: 'Poppins', sans-serif;
         }
+    @media screen and (min-width: 640px) {
+        #mouse-scroll {
+            display: none;
+        }
+
+        .circle {
+            display: none;
+        }
+    }
+@media screen and (max-width: 640px) {
+.prob-home h1{
+margin-bottom:50vh;
+}
+}
+
     </style>
     <title>BIT | SIH</title>
 </head>
@@ -154,7 +170,7 @@ error_reporting(0);
         <div class="logo">
             <img src="./assets/logo.png" alt="Logo Image">
             <h3>Bannari Amman Institute of Technology</h3>
-            <h4>BIT</h4>
+            <h4>BIT</h4>	
         </div>
         <div class="hamburger">
             <div class="line1"></div>
@@ -173,6 +189,21 @@ error_reporting(0);
     </nav>
     <section class="prob-home" id="home">
         <h1>PROFILE</h1>
+<div id="mouse-scroll">
+            <div class="mouse" id="about">
+                <div class="mouse-in"></div>
+            </div>
+            <div>
+                <span class="down-arrow-1"></span>
+                <span class="down-arrow-2"></span>
+                <span class="down-arrow-3"></span>
+            </div>
+        </div>
+ 	<div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
         <div class='student_details'>
             <?php
             $info = 0;

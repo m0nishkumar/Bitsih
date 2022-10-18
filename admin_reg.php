@@ -108,6 +108,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     <meta charset="UTF-8">
     <title>LINESTO | SIGNUP</title>
     <link rel="stylesheet" href="./css/style-login.css">
+<link rel="icon" type="image/x-icon" href="/assets/icon.png">
 
     <style>
         body{ background-color: #f2f4fe;

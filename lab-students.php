@@ -2,10 +2,12 @@
 session_start();
 
 // Check if the user is already logged in, if yes then redirect him to welcome page
-if (!isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] !== true) {
+if ($_SESSION["username"] != "admin") {
     header("location: admin_login.php");
     exit;
 }
+
+
 include 'config.php';
 error_reporting(0);
 
@@ -22,7 +24,7 @@ $id = $_POST['title_id'];
     <link rel="stylesheet" href="./css/style.css" />
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
+<link rel="icon" type="image/x-icon" href="/assets/icon.png">
     <title>BIT | SIH</title>
 </head>
 
