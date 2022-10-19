@@ -27,7 +27,7 @@
     <link rel="stylesheet" href="./css/team-reg.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="./css/bubble.css">
-<link rel="icon" type="image/x-icon" href="/assets/icon.png">
+    <link rel="icon" type="image/x-icon" href="/assets/icon.png">
     <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
 </head>
 
@@ -79,7 +79,7 @@
                     ?>
                             <br>
                             <i class="fa fa-user"></i>
-                            <input type="text" placeholder=" Member 5   's Email..." name="member3" required>
+                            <input type="text" placeholder=" Member 3's Email..." name="member3" required>
                         <?php
                         case "5":
                         ?>
@@ -90,7 +90,7 @@
                         case "4":
                         ?>
                             <br><i class="fa fa-user"></i>
-                            <input type="text" placeholder=" Member 3's Email..." name="member5" required><?php
+                            <input type="text" placeholder=" Member 5's Email..." name="member5" required><?php
                                                                                                             break;
                                                                                                     }
                                                                                                             ?>
