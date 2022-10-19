@@ -9,7 +9,7 @@
 
 @media screen and (min-width: 640px) {
     .wrapper_login {
-        width: 30vw;
+        width: 35vw;
         height: fit-content;
         border-radius: 8px;
         padding: 3vw;
@@ -21,10 +21,9 @@
         margin-bottom: 10%;
     }
     .wrapper_login p {
+        margin: auto;
         margin-bottom: 7%;
         font-size: small;
-        margin-left: 10%;
-        margin-right: 10%;
     }
     .wrapper_signup {
         width: 35vw;
@@ -33,7 +32,7 @@
         padding: 3vw;
         color: #465f82;
         background-color: #fdfcfd;
-        margin-top: 10vh;
+        margin-top: 16vh;
     }
     .wrapper_signup h3 {
         margin-bottom: 2vh;
@@ -98,14 +97,81 @@
     .form-group_signup option {
         color: gray;
     }
+    .mail {
+        position: relative;
+        display: block;
+        margin: 10px auto;
+        text-align: center;
+        z-index: 2;
+    }
+    .input_box {
+        padding-right: 7.7vw;
+    }
+    .domain {
+        position: absolute;
+        top: 1.5vh;
+        left: 11.5vw;
+        font-style: normal;
+        color: #000;
+    }
+    .mail_reg {
+        position: relative;
+        display: block;
+        margin: 10px auto;
+        text-align: center;
+        z-index: 2;
+    }
+    .input_box_reg {
+        padding-right: 9vw;
+    }
+    .domain_reg {
+        position: absolute;
+        top: 1.35vh;
+        left: 11.5vw;
+        font-style: normal;
+        color: #000;
+    }
 }
 
 @media screen and (max-width: 640px) {
+    .mail_reg {
+        position: relative;
+        display: block;
+        margin: 10px auto;
+        text-align: center;
+        z-index: 2;
+    }
+    .input_box_reg {
+        padding-right: 31vw;
+    }
+    .domain_reg {
+        position: absolute;
+        top: 1.35vh;
+        left: 36.6vw;
+        font-style: normal;
+        color: #000;
+    }
+    .mail {
+        position: relative;
+        display: block;
+        margin: 10px auto;
+        text-align: center;
+        z-index: 2;
+    }
+    .input_box {
+        padding-right: 28.7vw;
+    }
+    .domain {
+        position: absolute;
+        top: 1.6vh;
+        left: 27.5vw;
+        font-style: normal;
+        color: #000;
+    }
     .wrapper_login {
-        width: 90vw;
+        width: 96vw;
         height: fit-content;
         border-radius: 8px;
-        padding: 3vw;
         color: #465f82;
         background-color: #fdfcfd;
         margin-top: 20vh;
@@ -121,10 +187,9 @@
         margin-right: 10%;
     }
     .wrapper_signup {
-        width: 90vw;
+        width: 96vw;
         height: fit-content;
         border-radius: 8px;
-        padding: 3vw;
         color: #465f82;
         background-color: #fdfcfd;
         margin-top: 20vh;

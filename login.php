@@ -22,6 +22,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $username_err = "Please enter username.";
     } else {
         $username = trim($_POST["username"]);
+        $username = $username . '@bitsathy.ac.in';
+        $username = trim($username);
     }
 
     // Check if password is empty
@@ -92,7 +94,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <head>
     <meta charset="UTF-8">
-    <title>BIT'S HACK22 | SIGNUP</title>
+    <title>BIT'S HACK22 | LOGIN</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="./css/style-login.css">
@@ -103,6 +105,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             background-color: #f2f4fe;
             max-height: 100vh;
         }
+
+        textarea {
+            width: 100%;
+            max-height: 6.2vh;
+            margin-bottom: 20px;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 7px;
+        }
     </style>
 </head>
 
@@ -112,7 +123,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <div class="wrapper_login">
                 <h3><b>Welcome Back</b></h3>
 
-                <p>Please enter your credentials to access your account.</p>
+                <p>Please enter your BIT credentials to access your account.</p>
 
                 <?php
                 if (!empty($login_err)) {
@@ -122,7 +133,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
                 <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
                     <div class="form-group">
-                        <input type="text" autocomplete="off" name="username" placeholder="Enter your Mail ID" class="form-control  <?php echo (!empty($username_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $username; ?>">
+                        <div class="mail">
+                            <input class="input_box" type="text" autocomplete="off" name="username" placeholder="Enter your Mail ID" class="form-control  <?php echo (!empty($username_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $username; ?>">
+                            <p class="domain">@bitsathy.ac.in</p>
+                        </div>
                         <span class="invalid-feedback"><?php echo $username_err; ?></span>
                     </div>
                     <div class="form-group">

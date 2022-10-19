@@ -244,7 +244,7 @@
             </div>
         </div>
         <div class="footer-bottom">
-            <p>Created with ❤ by <a class="nodeHover" href="https://www.instagram.com/itskavinhere/">Kavinkumar B</a> & <a class="nodeHover" href="https://www.instagram.com/m0nishkumar/">Monish kumar B</a> </p>
+            <p>Created with ❤ by <a class="nodeHover" href="https://www.instagram.com/itskavinhere/" target="_blank" rel="noreferrer noopener">Kavinkumar B</a> & <a class="nodeHover" href="https://www.instagram.com/m0nishkumar/" target="_blank" rel="noreferrer noopener">Monish kumar B</a> </p>
 
         </div>
     </footer>

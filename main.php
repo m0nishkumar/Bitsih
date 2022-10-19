@@ -31,7 +31,7 @@ if (mysqli_num_rows($result) > 0) {
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>BIT'S HACK'22</title>
-<link rel="icon" type="image/x-icon" href="/assets/icon.png">
+    <link rel="icon" type="image/x-icon" href="/assets/icon.png">
 </head>
 
 <body>
@@ -264,8 +264,7 @@ if (mysqli_num_rows($result) > 0) {
             </div>
         </div>
         <div class="footer-bottom">
-            <p>Created with ❤ by <a class="nodeHover" href="#">Kavinkumar B</a> & <a class="nodeHover" href="#">Monish kumar B</a> </p>
-
+            <p>Created with ❤ by <a class="nodeHover" href="https://www.instagram.com/itskavinhere/" target="_blank" rel="noreferrer noopener">Kavinkumar B</a> & <a class="nodeHover" href="https://www.instagram.com/m0nishkumar/" target="_blank" rel="noreferrer noopener">Monish kumar B</a> </p>
         </div>
     </footer>
 

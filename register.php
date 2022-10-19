@@ -28,7 +28,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             mysqli_stmt_bind_param($stmt, "s", $param_username);
 
             // Set parameters
-            $param_username = trim($_POST["username"]);
+            $param_username = trim($_POST["username"]) . '@bitsathy.ac.in';
 
             // Attempt to execute the prepared statement
             if (mysqli_stmt_execute($stmt)) {
@@ -38,7 +38,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 if (mysqli_stmt_num_rows($stmt) == 1) {
                     $username_err = "This Mail is already taken.";
                 } else {
-                    $username = trim($_POST["username"]);
+                    $username = trim($_POST["username"]) . '@bitsathy.ac.in';
                 }
             } else {
                 echo "Oops! Something went wrong. Please try again later.";
@@ -112,11 +112,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <head>
     <meta charset="UTF-8">
-    <title>BIT'S HACK22 | LOGIN</title>
+    <title>BIT'S HACK22 | SIGNUP</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="./css/style-login.css">
-<link rel="icon" type="image/x-icon" href="/assets/icon.png">
+    <link rel="icon" type="image/x-icon" href="/assets/icon.png">
 
 
     <style>
@@ -138,7 +138,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <div class="investor">
                     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
                         <div class="form-group_signup">
-                            <input type="text" name="username" placeholder="Enter your Mail ID" class="form-control <?php echo (!empty($username_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $username; ?>">
+                            <div class="mail_reg">
+                                <input class="input_box_reg" type="text" name="username" placeholder="Enter your Mail ID" class="form-control <?php echo (!empty($username_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $username; ?>">
+                                <p class="domain_reg">@bitsathy.ac.in</p>
+                            </div>
                             <span class="invalid-feedback"><?php echo $username_err; ?></span>
                         </div>
                         <div class="form-group_signup">
