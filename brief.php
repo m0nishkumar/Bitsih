@@ -23,7 +23,7 @@ $result = mysqli_query($link, $sql);
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>BIT'S HACK'22</title>
-<link rel="icon" type="image/x-icon" href="/assets/icon.png">
+    <link rel="icon" type="image/x-icon" href="/assets/icon.png">
 </head>
 <style>
     @media screen and (min-width: 640px) {
@@ -35,11 +35,12 @@ $result = mysqli_query($link, $sql);
             display: none;
         }
     }
-@media screen and (max-width: 640px) {
-.prob-home h1{
-margin-bottom:50vh;
-}
-}
+
+    @media screen and (max-width: 640px) {
+        .prob-home h1 {
+            margin-bottom: 50vh;
+        }
+    }
 </style>
 
 <body>
@@ -48,7 +49,7 @@ margin-bottom:50vh;
     <nav>
         <div class="logo">
             <img src="./assets/logo.png" alt="Logo Image">
-	    <h3>Bannari Amman Institute of Technology</h3>
+            <h3>Bannari Amman Institute of Technology</h3>
             <h4>BIT</h4>
 
         </div>
@@ -69,12 +70,12 @@ margin-bottom:50vh;
     </nav>
     <section class="prob-home" id="home">
         <h1>PROBLEM STATEMENT<span>'</span>S</h1>
-       <div class="circle"></div>
         <div class="circle"></div>
         <div class="circle"></div>
         <div class="circle"></div>
         <div class="circle"></div>
- <div id="mouse-scroll">
+        <div class="circle"></div>
+        <div id="mouse-scroll">
             <div class="mouse" id="about">
                 <div class="mouse-in"></div>
             </div>
@@ -91,8 +92,8 @@ margin-bottom:50vh;
                 <div class="contentBox-glass">
                     <h4>Problem Code: <?php echo $row['id'] ?></h4>
                     <h4 style="margin-bottom:10px; font-size:16px;">Faculty Incharge Name: <?php echo $row['faculty'] ?></h4>
-                    <h4 style="margin-bottom:10px; font-size:16px;">Faculty Incharge Mail: <?php echo $row['faculty_mail'] ?></h4>                  
-		    <h3 style="margin-bottom: 10px;"><?php echo $row['title'] ?></h3>
+                    <h4 style="margin-bottom:10px; font-size:16px;">Faculty Incharge Mail: <?php echo $row['faculty_mail'] ?></h4>
+                    <h3 style="margin-bottom: 10px;"><?php echo $row['title'] ?></h3>
                     <h3 style="font-size:18px;margin-bottom:10px;margin-top:0px;text-align: left;">Objective</h3>
                     <p style="text-align: left;"><?php echo $row['brief'] ?></p>
                     <h3 style="font-size:18px; margin-bottom:10px;margin-top:20px;text-align: left;">Solution Expected</h3>
@@ -137,7 +138,10 @@ margin-bottom:50vh;
                 <bold style="font-weight: 600;">Phone: <br></bold> +91 9944820144 / +91 9952013214
             </p>
             <ul class="socials">
-                <li></li>
+                <li>
+                    <h5 style="font-family: 'Poppins', sans-serif; font-weight: 800;">For Any Technical Queries email to bitshack2022@bitsathy.ac.in</h5>
+
+                </li>
 
             </ul>
             <div class="footer-menu">

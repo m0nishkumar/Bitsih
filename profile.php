@@ -23,7 +23,7 @@ error_reporting(0);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="./css/style.css" />
-<link rel="icon" type="image/x-icon" href="/assets/icon.png">
+    <link rel="icon" type="image/x-icon" href="/assets/icon.png">
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
@@ -144,21 +144,22 @@ error_reporting(0);
             margin-left: 15px;
             font-family: 'Poppins', sans-serif;
         }
-    @media screen and (min-width: 640px) {
-        #mouse-scroll {
-            display: none;
+
+        @media screen and (min-width: 640px) {
+            #mouse-scroll {
+                display: none;
+            }
+
+            .circle {
+                display: none;
+            }
         }
 
-        .circle {
-            display: none;
+        @media screen and (max-width: 640px) {
+            .prob-home h1 {
+                margin-bottom: 50vh;
+            }
         }
-    }
-@media screen and (max-width: 640px) {
-.prob-home h1{
-margin-bottom:50vh;
-}
-}
-
     </style>
     <title>BIT | SIH</title>
 </head>
@@ -170,7 +171,7 @@ margin-bottom:50vh;
         <div class="logo">
             <img src="./assets/logo.png" alt="Logo Image">
             <h3>Bannari Amman Institute of Technology</h3>
-            <h4>BIT</h4>	
+            <h4>BIT</h4>
         </div>
         <div class="hamburger">
             <div class="line1"></div>
@@ -189,7 +190,7 @@ margin-bottom:50vh;
     </nav>
     <section class="prob-home" id="home">
         <h1>PROFILE</h1>
-<div id="mouse-scroll">
+        <div id="mouse-scroll">
             <div class="mouse" id="about">
                 <div class="mouse-in"></div>
             </div>
@@ -199,7 +200,7 @@ margin-bottom:50vh;
                 <span class="down-arrow-3"></span>
             </div>
         </div>
- 	<div class="circle"></div>
+        <div class="circle"></div>
         <div class="circle"></div>
         <div class="circle"></div>
         <div class="circle"></div>
@@ -493,7 +494,7 @@ margin-bottom:50vh;
 
                                     ?>
     </section>
- <footer>
+    <footer>
         <div id="footer" class="footer-content">
             <h3>BIT'S HACK'22</h3>
             <p style="width: 50vw;">
@@ -502,7 +503,10 @@ margin-bottom:50vh;
                 <bold style="font-weight: 600;">Phone: <br></bold> +91 9944820144 / +91 9952013214
             </p>
             <ul class="socials">
-                <li></li>
+                <li>
+                    <h5 style="font-family: 'Poppins', sans-serif; font-weight: 800;">For Any Technical Queries email to bitshack2022@bitsathy.ac.in</h5>
+
+                </li>
 
             </ul>
             <div class="footer-menu">
@@ -520,9 +524,9 @@ margin-bottom:50vh;
 
         </div>
     </footer>
-	<?php 
-		mysqli_close($link);
-	?>
+    <?php
+    mysqli_close($link);
+    ?>
 </body>
 <!-- partial -->
 <script src="./js/script.js"></script>

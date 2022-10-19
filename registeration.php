@@ -21,7 +21,7 @@ $team =  $row['team_id'];
     <link rel="stylesheet" href="./css/style.css">
     <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
     <title>BIT'S HACK'22</title>
-<link rel="icon" type="image/x-icon" href="/assets/icon.png">
+    <link rel="icon" type="image/x-icon" href="/assets/icon.png">
 
 </head>
 
@@ -109,7 +109,10 @@ $team =  $row['team_id'];
             <bold style="font-weight: 600;">Phone: <br></bold> +91 9944820144 / +91 9952013214
         </p>
         <ul class="socials">
-            <li></li>
+            <li>
+                <h5 style="font-family: 'Poppins', sans-serif; font-weight: 800;">For Any Technical Queries email to bitshack2022@bitsathy.ac.in</h5>
+
+            </li>
 
         </ul>
         <div class="footer-menu">

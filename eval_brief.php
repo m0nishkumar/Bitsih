@@ -180,7 +180,7 @@ $problem = $_POST["prob_id"];
         $_SESSION['team'] = $row['team'];
         $_SESSION['prob_id'] = $row['prob_id'];
         $temp = 0;
-        if($_SESSION['team'] == '' && $_SESSION['prob_id'] == '') {
+        if ($_SESSION['team'] == '' && $_SESSION['prob_id'] == '') {
             $temp = 1;
         }
 
@@ -228,7 +228,9 @@ $problem = $_POST["prob_id"];
                 <bold style="font-weight: 600;">Phone: <br></bold> +91 9944820144 / +91 9952013214
             </p>
             <ul class="socials">
-                <li></li>
+                <li>
+                    <h5 style="font-family: 'Poppins', sans-serif; font-weight: 800;">For Any Technical Queries email to bitshack2022@bitsathy.ac.in</h5>
+                </li>
 
             </ul>
             <div class="footer-menu">

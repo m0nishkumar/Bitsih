@@ -32,7 +32,7 @@ $result = mysqli_query($link, $sql);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="./css/style.css" />
-<link rel="icon" type="image/x-icon" href="/assets/icon.png">
+    <link rel="icon" type="image/x-icon" href="/assets/icon.png">
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
@@ -114,7 +114,9 @@ $result = mysqli_query($link, $sql);
                 <bold style="font-weight: 600;">Phone: <br></bold> +91 9944820144 / +91 9952013214
             </p>
             <ul class="socials">
-                <li></li>
+                <li>
+                    <h5 style="font-family: 'Poppins', sans-serif; font-weight: 800;">For Any Technical Queries email to bitshack2022@bitsathy.ac.in</h5>
+                </li>
 
             </ul>
             <div class="footer-menu">
