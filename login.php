@@ -119,6 +119,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <body>
     <center>
+        <?php
+        session_start(); ?>
+        <h4 style="color: green;"> <?php echo $_SESSION['Success']; ?></h4>
+        <?php
+        ?>
         <section class="login_forms">
             <div class="wrapper_login">
                 <h3><b>Welcome Back</b></h3>

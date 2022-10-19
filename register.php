@@ -8,7 +8,7 @@ if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true) {
     header("location: login.php");
     exit;
 }
-
+error_reporting(0);
 $username = $password = $confirm_password = "";
 $username_err = $password_err = $confirm_password_err = "";
 
@@ -38,7 +38,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 if (mysqli_stmt_num_rows($stmt) == 1) {
                     $username_err = "This Mail is already taken.";
                 } else {
-                    $username = trim($_POST["username"]) . '@bitsathy.ac.in';
+                    include 'config.php';
+                    $user_data = "SELECT student_official_email_id from user_data";
+                    $resulty = mysqli_query($link, $user_data);
+                    $temp = 0;
+                    while ($row = mysqli_fetch_array($resulty)) {
+                        if (strtoupper($row['student_official_email_id']) == strtoupper(trim($_POST["username"]) . '@bitsathy.ac.in')) {
+                            $username = trim($_POST["username"]) . '@bitsathy.ac.in';
+                            $temp = 1;
+                        }
+                    }
                 }
             } else {
                 echo "Oops! Something went wrong. Please try again later.";
@@ -72,29 +81,34 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (empty($username_err) && empty($password_err) && empty($confirm_password_err)) {
 
         // Prepare an insert statement
-        $sql = "INSERT INTO users (username, password) VALUES (?, ?)";
+        if ($temp == 1) {
+            $sql = "INSERT INTO users (username, password) VALUES (?, ?)";
+            if ($stmt = mysqli_prepare($link, $sql)) {
+                // Bind variables to the prepared statement as parameters
+                mysqli_stmt_bind_param($stmt, "ss", $param_username, $param_password);
 
+                // Set parameters
+                $param_username = $username;
+                $param_password = password_hash($password, PASSWORD_DEFAULT); // Creates a password hash
 
+                // Attempt to execute the prepared statement
+                if (mysqli_stmt_execute($stmt)) {
+                    // Redirect to login page
+                    session_start();
 
-        if ($stmt = mysqli_prepare($link, $sql)) {
-            // Bind variables to the prepared statement as parameters
-            mysqli_stmt_bind_param($stmt, "ss", $param_username, $param_password);
+                    // Store data in session variables
+                    $_SESSION["Success"] = "You have successfully Signed Up!";
+                    header("location: login.php");
+                } else {
+                    echo "Oops! Something went wrong. Please try again later.";
+                }
 
-            // Set parameters
-            $param_username = $username;
-            $param_password = password_hash($password, PASSWORD_DEFAULT); // Creates a password hash
-
-            // Attempt to execute the prepared statement
-            if (mysqli_stmt_execute($stmt)) {
-                // Redirect to login page
-                header("location: login.php");
-            } else {
-                echo "Oops! Something went wrong. Please try again later.";
+                // Close statement
+                mysqli_stmt_close($stmt);
             }
-
-            // Close statement
-            mysqli_stmt_close($stmt);
-        }
+        } else { ?>
+            <p style="text-align: center; color:red; font-size:20px;"><?php echo "Oops! Make sure that you use BITSATHY Mail ID."; ?></p>
+<?php }
     }
 
 
